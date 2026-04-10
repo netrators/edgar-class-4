@@ -90,13 +90,6 @@
             border: 1px solid rgba(255, 255, 255, 0.5);
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
         }
-        
-        .glass-panel-dark {
-            background: rgba(10, 25, 47, 0.85);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
 
         .fib-input {
             width: 140px;
@@ -302,7 +295,8 @@
             const [isRecording, setIsRecording] = useState(false);
             const [feedback, setFeedback] = useState(null);
 
-            const phrase = phrases[currentIdx];
+            // Safety fallback to prevent crashes if indices get out of sync during unmounts
+            const phrase = phrases[currentIdx] || phrases[0];
 
             const handleRecord = () => {
                 setIsRecording(true);
@@ -325,6 +319,8 @@
                 setCurrentIdx((prev) => (prev + 1) % phrases.length);
                 setFeedback(null);
             };
+
+            if (!phrase) return null;
 
             return (
                 <div className="w-full max-w-4xl mx-auto animate-fade-in-up">
@@ -410,7 +406,9 @@
             const nextCard = () => { setIsFlipped(false); setTimeout(() => setCurrentIndex(p => (p + 1) % cards.length), 150); };
             const prevCard = () => { setIsFlipped(false); setTimeout(() => setCurrentIndex(p => (p === 0 ? cards.length - 1 : p - 1)), 150); };
 
-            const card = cards[currentIndex];
+            // Safety fallback
+            const card = cards[currentIndex] || cards[0];
+            if (!card) return null;
 
             return (
                 <div className="w-full max-w-md mx-auto flex flex-col items-center">
@@ -494,7 +492,9 @@
                 );
             }
 
-            const q = questions[currentQ];
+            // Safety fallback
+            const q = questions[currentQ] || questions[0];
+            if (!q) return null;
 
             return (
                 <div className="glass-panel p-8 md:p-12 rounded-[2.5rem] shadow-xl animate-fade-in-right relative overflow-hidden">
@@ -779,7 +779,7 @@
         const SpeechSimulator = ({ prompts }) => {
             const [isActive, setIsActive] = useState(false);
             const [time, setTime] = useState(45);
-            const [currentPrompt, setCurrentPrompt] = useState(prompts[0]);
+            const [currentPrompt, setCurrentPrompt] = useState(prompts[0] || "");
             
             const radius = 80;
             const circumference = 2 * Math.PI * radius;
@@ -1347,8 +1347,8 @@
 
                         {/* Content Area */}
                         <main ref={mainRef} className="flex-1 overflow-y-auto relative bg-dot-pattern scroll-smooth">
-                            <div className="max-w-7xl mx-auto px-4 sm:px-8 py-10 md:py-16 min-h-full flex flex-col relative z-10">
-                                <div className="my-auto w-full">
+                            <div className="max-w-7xl mx-auto px-4 sm:px-8 pt-12 md:pt-16 pb-24 min-h-full flex flex-col relative z-10">
+                                <div className="w-full">
                                     <div className="text-center mb-12 md:mb-16 animate-fade-in-down">
                                         <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/80 backdrop-blur-sm text-navy-800 font-bold tracking-[0.2em] uppercase text-xs mb-6 shadow-sm border border-gray-200">
                                             Module {currentSlide + 1} <span className="text-gold-500">•</span> {slide.subtitle}
@@ -1357,7 +1357,8 @@
                                             {slide.title}
                                         </h2>
                                     </div>
-                                    <div className="flex justify-center w-full pb-8 md:pb-16">
+                                    {/* KEY VITAL: key={slide.id} asegura que React destruya y recree el componente, haciéndolo 100% independiente de otras diapositivas */}
+                                    <div key={slide.id} className="flex justify-center w-full pb-8 animate-fade-in-up">
                                         {slide.content()}
                                     </div>
                                 </div>
