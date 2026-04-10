@@ -6,7 +6,7 @@
     <meta name="description" content="VIP Travel & Backstage Slang - Premium English B1 Masterclass">
     <title>Masterclass Premium: VIP Travel & Backstage Slang</title>
     
-    <!-- Tailwind CSS (CDN Script for advanced configuration) -->
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -14,7 +14,8 @@
                 extend: {
                     colors: {
                         navy: { 50: '#e6e9ef', 100: '#b0b9cb', 200: '#8b9bb4', 300: '#657d9c', 400: '#486283', 500: '#2a4365', 600: '#233855', 700: '#1b2d44', 800: '#112240', 900: '#0A192F' },
-                        gold: { 50: '#fcfaf7', 100: '#f9f6f0', 200: '#f0e8d9', 300: '#e6d5b8', 400: '#d4bd94', 500: '#C5A880', 600: '#b39162', 700: '#9b8464', 800: '#826f55', 900: '#6a5a46' }
+                        gold: { 50: '#fcfaf7', 100: '#f9f6f0', 200: '#f0e8d9', 300: '#e6d5b8', 400: '#d4bd94', 500: '#C5A880', 600: '#b39162', 700: '#9b8464', 800: '#826f55', 900: '#6a5a46' },
+                        jewel: { rose: '#e11d48', amethyst: '#8b5cf6', emerald: '#10b981', sapphire: '#0ea5e9' }
                     },
                     animation: {
                         'fade-in-up': 'fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards',
@@ -24,108 +25,79 @@
                         'shake': 'shake 0.5s ease-in-out',
                         'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
                         'float': 'float 4s ease-in-out infinite',
-                        'spin-slow': 'spin 8s linear infinite',
+                        'spin-slow': 'spin 12s linear infinite',
                         'bounce-slight': 'bounceSlight 2s infinite',
-                        'fly': 'fly 6s linear infinite'
+                        'fly': 'fly 6s linear infinite',
+                        'blob': 'blob 7s infinite',
+                        'wave': 'wave 1s ease-in-out infinite'
                     },
                     keyframes: {
-                        fadeInUp: {
-                            '0%': { opacity: '0', transform: 'translateY(40px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' },
-                        },
-                        fadeInDown: {
-                            '0%': { opacity: '0', transform: 'translateY(-40px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' },
-                        },
-                        fadeInLeft: {
-                            '0%': { opacity: '0', transform: 'translateX(-40px)' },
-                            '100%': { opacity: '1', transform: 'translateX(0)' },
-                        },
-                        fadeInRight: {
-                            '0%': { opacity: '0', transform: 'translateX(40px)' },
-                            '100%': { opacity: '1', transform: 'translateX(0)' },
-                        },
-                        shake: {
-                            '0%, 100%': { transform: 'translateX(0)' },
-                            '20%, 60%': { transform: 'translateX(-8px)' },
-                            '40%, 80%': { transform: 'translateX(8px)' },
-                        },
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-15px)' },
-                        },
-                        bounceSlight: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-5px)' },
-                        },
-                        fly: {
-                            '0%': { transform: 'translate(0, 0) rotate(0deg)' },
-                            '25%': { transform: 'translate(10px, -10px) rotate(5deg)' },
-                            '50%': { transform: 'translate(20px, 0) rotate(0deg)' },
-                            '75%': { transform: 'translate(10px, 10px) rotate(-5deg)' },
-                            '100%': { transform: 'translate(0, 0) rotate(0deg)' },
-                        }
+                        fadeInUp: { '0%': { opacity: '0', transform: 'translateY(40px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
+                        fadeInDown: { '0%': { opacity: '0', transform: 'translateY(-40px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
+                        fadeInLeft: { '0%': { opacity: '0', transform: 'translateX(-40px)' }, '100%': { opacity: '1', transform: 'translateX(0)' } },
+                        fadeInRight: { '0%': { opacity: '0', transform: 'translateX(40px)' }, '100%': { opacity: '1', transform: 'translateX(0)' } },
+                        shake: { '0%, 100%': { transform: 'translateX(0)' }, '20%, 60%': { transform: 'translateX(-8px)' }, '40%, 80%': { transform: 'translateX(8px)' } },
+                        float: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-15px)' } },
+                        bounceSlight: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-5px)' } },
+                        fly: { '0%': { transform: 'translate(0, 0) rotate(0deg)' }, '25%': { transform: 'translate(10px, -10px) rotate(5deg)' }, '50%': { transform: 'translate(20px, 0) rotate(0deg)' }, '75%': { transform: 'translate(10px, 10px) rotate(-5deg)' }, '100%': { transform: 'translate(0, 0) rotate(0deg)' } },
+                        blob: { '0%': { transform: 'translate(0px, 0px) scale(1)' }, '33%': { transform: 'translate(30px, -50px) scale(1.1)' }, '66%': { transform: 'translate(-20px, 20px) scale(0.9)' }, '100%': { transform: 'translate(0px, 0px) scale(1)' } },
+                        wave: { '0%, 100%': { height: '8px' }, '50%': { height: '32px' } }
                     }
                 }
             }
         }
     </script>
     
-    <!-- React & ReactDOM (Production Minified) -->
+    <!-- React & ReactDOM -->
     <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
     
-    <!-- Babel (In-browser JSX compilation) -->
+    <!-- Babel -->
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
     <style>
-        /* Base Styles & Typography Overrides */
         body { 
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
             background-color: #f8f9fa; 
-            overflow: hidden; /* Prevent body scroll, handle inside app container (100dvh) */
+            overflow: hidden; 
         }
         
-        /* 3D Transform Utilities for Flashcards */
         .perspective-1000 { perspective: 1000px; }
         .transform-style-3d { transform-style: preserve-3d; }
         .backface-hidden { backface-visibility: hidden; }
         .rotate-y-180 { transform: rotateY(180deg); }
         
-        /* Elegant Scrollbar */
         ::-webkit-scrollbar { width: 6px; height: 6px; }
         ::-webkit-scrollbar-track { background: transparent; }
         ::-webkit-scrollbar-thumb { background: #d4bd94; border-radius: 10px; }
         ::-webkit-scrollbar-thumb:hover { background: #b39162; }
 
-        /* SVG Circular Timer Styles */
         .progress-ring__circle {
             transition: stroke-dashoffset 1s linear, stroke 0.3s ease;
             transform: rotate(-90deg);
             transform-origin: 50% 50%;
         }
 
-        /* Dotted Background Pattern */
         .bg-dot-pattern {
-            background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
+            background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
             background-size: 24px 24px;
         }
 
-        /* Glassmorphism Utilities */
         .glass-panel {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
         }
+        
         .glass-panel-dark {
             background: rgba(10, 25, 47, 0.85);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        /* Input specific styles for Fill in the Blanks */
         .fib-input {
             width: 140px;
             transition: all 0.3s ease;
@@ -135,6 +107,13 @@
             outline: none;
             border-bottom-color: #C5A880;
         }
+
+        /* Animation delays for waveform */
+        .wave-bar:nth-child(1) { animation-delay: 0.0s; }
+        .wave-bar:nth-child(2) { animation-delay: 0.1s; }
+        .wave-bar:nth-child(3) { animation-delay: 0.2s; }
+        .wave-bar:nth-child(4) { animation-delay: 0.3s; }
+        .wave-bar:nth-child(5) { animation-delay: 0.4s; }
     </style>
 </head>
 <body>
@@ -161,8 +140,8 @@
             switch(type) {
                 case 'correct':
                     osc.type = 'sine';
-                    osc.frequency.setValueAtTime(523.25, now); // C5
-                    osc.frequency.exponentialRampToValueAtTime(1046.50, now + 0.1); // C6
+                    osc.frequency.setValueAtTime(523.25, now);
+                    osc.frequency.exponentialRampToValueAtTime(1046.50, now + 0.1);
                     gainNode.gain.setValueAtTime(0.3, now);
                     gainNode.gain.exponentialRampToValueAtTime(0.01, now + 0.3);
                     osc.start(now);
@@ -207,7 +186,7 @@
                 window.speechSynthesis.cancel();
                 const utterance = new SpeechSynthesisUtterance(text);
                 utterance.lang = 'en-US';
-                utterance.rate = 0.85; // B1 friendly speed
+                utterance.rate = 0.85; 
                 
                 const voices = window.speechSynthesis.getVoices();
                 const englishVoice = voices.find(v => v.lang.includes('en-US') && v.name.includes('Female')) 
@@ -216,8 +195,6 @@
                 if (englishVoice) utterance.voice = englishVoice;
                 
                 window.speechSynthesis.speak(utterance);
-            } else {
-                console.warn("Speech Synthesis not supported in this browser.");
             }
         };
 
@@ -226,15 +203,15 @@
         }
 
         // =====================================================================
-        // 2. SVG ICON LIBRARY (Zero External Dependencies)
+        // 2. SVG ICON LIBRARY
         // =====================================================================
 
         const Icons = {
             Volume: ({ size=20, className="" }) => <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path></svg>,
+            Mic: ({ size=24, className="" }) => <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" x1="12" y1="19" y2="22"></line></svg>,
             Check: ({ size=20, className="" }) => <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><polyline points="20 6 9 17 4 12"></polyline></svg>,
             X: ({ size=20, className="" }) => <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>,
             Menu: ({ size=24, className="" }) => <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>,
-            Mic: ({ size=24, className="" }) => <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" x1="12" y1="19" y2="22"></line></svg>,
             ChevronRight: ({ size=20, className="" }) => <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><polyline points="9 18 15 12 9 6"></polyline></svg>,
             ChevronLeft: ({ size=20, className="" }) => <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><polyline points="15 18 9 12 15 6"></polyline></svg>,
             Star: ({ size=20, className="" }) => <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>,
@@ -251,7 +228,8 @@
             Plane: ({ size=24, className="" }) => <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.2-1.1.7l-1.2 3.6c-.2.5.1 1.1.6 1.2l6.2 1.8L7.5 15l-3.3-.6c-.4-.1-.8.1-1 .5l-1 2c-.2.4 0 .9.4 1l4.9 1.6 1.6 4.9c.1.4.6.6 1 .4l2-1c.4-.2.6-.6.5-1l-.6-3.3 1.5-1.8 1.8 6.2c.1.5.7.8 1.2.6l3.6-1.2c.5-.2.8-.6.7-1.1z"></path></svg>,
             MapPin: ({ size=24, className="" }) => <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>,
             Briefcase: ({ size=24, className="" }) => <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><rect width="20" height="14" x="2" y="7" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>,
-            Smile: ({ size=24, className="" }) => <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" x1="9.01" y1="9" y2="9"></line><line x1="15" x1="15.01" y1="9" y2="9"></line></svg>
+            Smile: ({ size=24, className="" }) => <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" x1="9.01" y1="9" y2="9"></line><line x1="15" x1="15.01" y1="9" y2="9"></line></svg>,
+            Headphones: ({ size=24, className="" }) => <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M3 18v-6a9 9 0 0 1 18 0v6"></path><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path></svg>
         };
 
         // =====================================================================
@@ -261,24 +239,24 @@
         const TTSButton = ({ text, className="", title="Listen to pronunciation" }) => (
             <button 
                 onClick={(e) => { e.stopPropagation(); speakText(text); }}
-                className={`p-2 rounded-full transition-all duration-300 hover:scale-110 active:scale-95 flex-shrink-0 ${className}`}
+                className={`p-3 rounded-full transition-all duration-300 hover:scale-110 active:scale-95 flex-shrink-0 shadow-sm ${className}`}
                 title={title}
                 aria-label={title}
             >
-                <Icons.Volume size={18} />
+                <Icons.Volume size={20} />
             </button>
         );
 
         const Chunk = ({ type, children }) => {
             const styles = {
-                modal: "bg-blue-100 text-blue-800 border-blue-300",
-                verb: "bg-green-100 text-green-800 border-green-300",
-                slang: "bg-orange-100 text-orange-800 border-orange-300",
-                noun: "bg-purple-100 text-purple-800 border-purple-300",
-                aux: "bg-pink-100 text-pink-800 border-pink-300"
+                modal: "bg-gradient-to-r from-blue-100 to-blue-200 text-blue-800 border-blue-300",
+                verb: "bg-gradient-to-r from-emerald-100 to-emerald-200 text-emerald-800 border-emerald-300",
+                slang: "bg-gradient-to-r from-orange-100 to-rose-100 text-rose-800 border-rose-300",
+                noun: "bg-gradient-to-r from-purple-100 to-amethyst-200 text-purple-800 border-purple-300",
+                aux: "bg-gradient-to-r from-pink-100 to-rose-200 text-rose-800 border-rose-300"
             };
             return (
-                <span className={`inline-block px-2 py-1 mx-1 rounded-md font-bold border ${styles[type]} shadow-sm transition-transform hover:-translate-y-1`}>
+                <span className={`inline-block px-3 py-1 mx-1 rounded-lg font-bold border ${styles[type]} shadow-sm transition-transform hover:-translate-y-1`}>
                     {children}
                 </span>
             );
@@ -287,11 +265,10 @@
         const Button = ({ children, onClick, disabled, variant='primary', className="", icon: Icon }) => {
             const base = "flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-bold transition-all duration-300 shadow-sm active:scale-95 disabled:opacity-50 disabled:pointer-events-none";
             const variants = {
-                primary: "bg-navy-900 text-white hover:bg-navy-800 hover:shadow-lg hover:-translate-y-0.5 border border-transparent",
-                secondary: "bg-gold-500 text-navy-900 hover:bg-gold-400 hover:shadow-lg border border-transparent",
+                primary: "bg-gradient-to-r from-navy-800 to-navy-900 text-white hover:shadow-lg hover:-translate-y-0.5 border border-transparent",
+                secondary: "bg-gradient-to-r from-gold-400 to-gold-600 text-navy-900 hover:shadow-lg border border-transparent",
                 outline: "border-2 border-navy-900 text-navy-900 hover:bg-navy-50",
-                ghost: "bg-transparent text-gray-600 shadow-none hover:bg-gray-100 hover:text-navy-900",
-                danger: "bg-red-500 text-white hover:bg-red-600 hover:shadow-lg"
+                ghost: "bg-transparent text-gray-600 shadow-none hover:bg-white hover:text-navy-900 hover:shadow-sm"
             };
             return (
                 <button onClick={onClick} disabled={disabled} className={`${base} ${variants[variant]} ${className}`}>
@@ -305,11 +282,11 @@
             const colors = {
                 navy: "bg-navy-100 text-navy-800 border-navy-200",
                 gold: "bg-gold-100 text-gold-800 border-gold-200",
-                green: "bg-green-100 text-green-800 border-green-200",
-                orange: "bg-orange-100 text-orange-800 border-orange-200"
+                emerald: "bg-emerald-100 text-emerald-800 border-emerald-200",
+                rose: "bg-rose-100 text-rose-800 border-rose-200"
             };
             return (
-                <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-bold tracking-widest uppercase border ${colors[color]}`}>
+                <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-bold tracking-widest uppercase border shadow-sm ${colors[color]}`}>
                     {children}
                 </span>
             );
@@ -319,19 +296,123 @@
         // 4. INTERACTIVE ACTIVITY COMPONENTS
         // =====================================================================
 
-        // 4.1 3D Flashcards Deck
+        // 4.1 Pronunciation & Speaking Practice Clinic (NEW)
+        const PronunciationPractice = ({ title, context, phrases }) => {
+            const [currentIdx, setCurrentIdx] = useState(0);
+            const [isRecording, setIsRecording] = useState(false);
+            const [feedback, setFeedback] = useState(null);
+
+            const phrase = phrases[currentIdx];
+
+            const handleRecord = () => {
+                setIsRecording(true);
+                setFeedback(null);
+                
+                // Simulate recording time and AI analysis
+                setTimeout(() => {
+                    setIsRecording(false);
+                    const feedbacks = [
+                        { msg: "Excellent rhythm and intonation! 🌟", type: 'perfect' },
+                        { msg: "Great! Make sure to blend the words naturally.", type: 'good' },
+                        { msg: "Nailed it! Sounded completely natural.", type: 'perfect' },
+                        { msg: "Very good pronunciation. Keep practicing the pause.", type: 'good' }
+                    ];
+                    setFeedback(feedbacks[Math.floor(Math.random() * feedbacks.length)]);
+                    playSound('correct');
+                }, 3000);
+            };
+
+            const nextPhrase = () => {
+                setCurrentIdx((prev) => (prev + 1) % phrases.length);
+                setFeedback(null);
+            };
+
+            return (
+                <div className="w-full max-w-4xl mx-auto animate-fade-in-up">
+                    <div className="glass-panel p-8 md:p-12 rounded-[2.5rem] shadow-2xl border-t-8 border-jewel-rose relative overflow-hidden">
+                        
+                        {/* Decorative background gradients */}
+                        <div className="absolute top-0 right-0 w-64 h-64 bg-jewel-rose rounded-full opacity-10 blur-3xl translate-x-1/2 -translate-y-1/2"></div>
+                        <div className="absolute bottom-0 left-0 w-64 h-64 bg-jewel-sapphire rounded-full opacity-10 blur-3xl -translate-x-1/2 translate-y-1/2"></div>
+
+                        <div className="text-center mb-8 relative z-10">
+                            <Badge color="rose">Speaking Clinic</Badge>
+                            <h3 className="text-3xl font-extrabold text-navy-900 mt-4 mb-2">{title}</h3>
+                            <p className="text-gray-600">{context}</p>
+                        </div>
+
+                        <div className="bg-white/80 p-8 rounded-3xl shadow-sm border border-gray-100 text-center mb-8 relative z-10 min-h-[200px] flex flex-col justify-center">
+                            <p className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-4">Phrase {currentIdx + 1} of {phrases.length}</p>
+                            <p className="text-2xl md:text-4xl font-light text-navy-900 leading-relaxed mb-4" dangerouslySetInnerHTML={{ __html: phrase.html }}></p>
+                            {phrase.tip && <p className="text-jewel-rose text-sm font-bold bg-rose-50 inline-block px-4 py-2 rounded-full mx-auto">💡 Tip: {phrase.tip}</p>}
+                        </div>
+
+                        <div className="flex flex-col md:flex-row items-center justify-center gap-6 relative z-10">
+                            
+                            <button 
+                                onClick={() => speakText(phrase.raw)}
+                                className="flex flex-col items-center gap-2 text-navy-600 hover:text-navy-900 transition-colors"
+                            >
+                                <div className="w-16 h-16 rounded-full bg-navy-50 flex items-center justify-center border-2 border-navy-200 hover:bg-navy-100 hover:scale-105 transition-transform">
+                                    <Icons.Headphones size={28} />
+                                </div>
+                                <span className="font-bold text-sm uppercase tracking-wide">1. Listen</span>
+                            </button>
+
+                            <div className="hidden md:block w-16 border-t-2 border-dashed border-gray-300"></div>
+
+                            <div className="flex flex-col items-center gap-2">
+                                <button 
+                                    onClick={handleRecord}
+                                    disabled={isRecording}
+                                    className={`w-20 h-20 rounded-full flex items-center justify-center text-white transition-all duration-300 shadow-xl ${isRecording ? 'bg-jewel-rose scale-110 animate-pulse' : 'bg-gradient-to-br from-jewel-rose to-red-700 hover:scale-105 hover:shadow-2xl'}`}
+                                >
+                                    {isRecording ? (
+                                        <div className="flex gap-1 items-center justify-center h-8">
+                                            <div className="w-1.5 bg-white rounded-full animate-wave wave-bar h-2"></div>
+                                            <div className="w-1.5 bg-white rounded-full animate-wave wave-bar h-8"></div>
+                                            <div className="w-1.5 bg-white rounded-full animate-wave wave-bar h-4"></div>
+                                            <div className="w-1.5 bg-white rounded-full animate-wave wave-bar h-6"></div>
+                                            <div className="w-1.5 bg-white rounded-full animate-wave wave-bar h-3"></div>
+                                        </div>
+                                    ) : (
+                                        <Icons.Mic size={32} />
+                                    )}
+                                </button>
+                                <span className={`font-bold text-sm uppercase tracking-wide ${isRecording ? 'text-jewel-rose' : 'text-gray-600'}`}>
+                                    {isRecording ? 'Listening...' : '2. Speak'}
+                                </span>
+                            </div>
+
+                        </div>
+
+                        {/* Feedback & Next Button Area */}
+                        <div className="mt-8 min-h-[80px] flex flex-col items-center justify-center relative z-10">
+                            {feedback && (
+                                <div className="animate-fade-in-up flex flex-col items-center">
+                                    <div className={`px-6 py-3 rounded-xl font-bold mb-4 flex items-center gap-2 shadow-sm ${feedback.type === 'perfect' ? 'bg-emerald-100 text-emerald-800 border border-emerald-200' : 'bg-blue-100 text-blue-800 border border-blue-200'}`}>
+                                        <Icons.Check size={20} /> {feedback.msg}
+                                    </div>
+                                    <Button onClick={nextPhrase} variant="outline" className="text-sm px-4 py-2">
+                                        Next Phrase <Icons.ChevronRight size={16} />
+                                    </Button>
+                                </div>
+                            )}
+                        </div>
+
+                    </div>
+                </div>
+            );
+        };
+
+
+        // 4.2 3D Flashcards Deck
         const FlashcardDeck = ({ cards, deckName }) => {
             const [currentIndex, setCurrentIndex] = useState(0);
             const [isFlipped, setIsFlipped] = useState(false);
 
-            const nextCard = () => { 
-                setIsFlipped(false); 
-                setTimeout(() => setCurrentIndex(p => (p + 1) % cards.length), 150); 
-            };
-            const prevCard = () => { 
-                setIsFlipped(false); 
-                setTimeout(() => setCurrentIndex(p => (p === 0 ? cards.length - 1 : p - 1)), 150); 
-            };
+            const nextCard = () => { setIsFlipped(false); setTimeout(() => setCurrentIndex(p => (p + 1) % cards.length), 150); };
+            const prevCard = () => { setIsFlipped(false); setTimeout(() => setCurrentIndex(p => (p === 0 ? cards.length - 1 : p - 1)), 150); };
 
             const card = cards[currentIndex];
 
@@ -339,45 +420,42 @@
                 <div className="w-full max-w-md mx-auto flex flex-col items-center">
                     <div className="flex justify-between w-full items-center mb-6">
                         <Badge color="gold">{deckName}</Badge>
-                        <span className="text-gray-400 font-bold text-sm">Card {currentIndex + 1} of {cards.length}</span>
+                        <span className="text-gray-500 font-bold text-sm">Card {currentIndex + 1} of {cards.length}</span>
                     </div>
                     
-                    <div 
-                        className="relative w-full h-80 perspective-1000 cursor-pointer group"
-                        onClick={() => setIsFlipped(!isFlipped)}
-                    >
-                        <div className={`w-full h-full absolute transition-all duration-700 transform-style-3d shadow-2xl rounded-2xl ${isFlipped ? 'rotate-y-180' : ''}`}>
+                    <div className="relative w-full h-80 perspective-1000 cursor-pointer group" onClick={() => setIsFlipped(!isFlipped)}>
+                        <div className={`w-full h-full absolute transition-all duration-700 transform-style-3d shadow-xl rounded-3xl ${isFlipped ? 'rotate-y-180' : ''}`}>
                             
                             {/* Front */}
-                            <div className="absolute w-full h-full backface-hidden bg-white rounded-2xl border-b-8 border-navy-900 flex flex-col items-center justify-center p-8 text-center group-hover:border-gold-500 transition-colors">
+                            <div className="absolute w-full h-full backface-hidden bg-white/90 backdrop-blur-sm rounded-3xl border border-white flex flex-col items-center justify-center p-8 text-center group-hover:border-gold-300 transition-colors shadow-lg">
                                 <TTSButton text={card.term} className="absolute top-4 right-4 bg-navy-50 text-navy-900" />
-                                {card.icon && <card.icon size={48} className="text-gold-500 mb-6 opacity-80" />}
-                                <h3 className="text-4xl font-extrabold text-navy-900 mb-2">{card.term}</h3>
-                                <p className="text-gray-400 text-sm mt-4 font-medium tracking-wide">TAP TO FLIP</p>
+                                {card.icon && <card.icon size={56} className="text-gold-500 mb-6 opacity-80" />}
+                                <h3 className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-navy-900 to-navy-600 mb-2">{card.term}</h3>
+                                <p className="text-gray-400 text-sm mt-4 font-bold tracking-widest bg-gray-50 px-4 py-1 rounded-full">TAP TO FLIP</p>
                             </div>
 
                             {/* Back */}
-                            <div className="absolute w-full h-full backface-hidden bg-navy-900 rounded-2xl rotate-y-180 flex flex-col items-center justify-center p-8 text-center text-white border-b-8 border-gold-500">
-                                <h4 className="text-gold-500 font-bold uppercase tracking-widest mb-2 text-xs opacity-80">Meaning</h4>
-                                <p className="text-xl mb-6 font-light leading-snug">{card.def}</p>
-                                <div className="bg-white/10 p-4 rounded-xl w-full border border-white/5">
-                                    <h4 className="text-gold-300 font-semibold text-xs mb-2 tracking-widest uppercase">Example in Context</h4>
-                                    <p className="italic text-gray-200 text-sm leading-relaxed" dangerouslySetInnerHTML={{ __html: card.example }}></p>
-                                    <TTSButton text={card.exampleRaw} className="mt-4 text-gold-500 hover:bg-gold-500 hover:text-navy-900 bg-white/5" />
+                            <div className="absolute w-full h-full backface-hidden bg-gradient-to-br from-navy-900 to-navy-800 rounded-3xl rotate-y-180 flex flex-col items-center justify-center p-8 text-center text-white border-b-8 border-gold-500 shadow-2xl">
+                                <h4 className="text-gold-400 font-bold uppercase tracking-widest mb-2 text-xs">Meaning</h4>
+                                <p className="text-xl mb-6 font-light leading-snug text-gray-100">{card.def}</p>
+                                <div className="bg-black/20 p-5 rounded-2xl w-full border border-white/10 shadow-inner">
+                                    <h4 className="text-gold-300 font-bold text-xs mb-2 tracking-widest uppercase opacity-80">Example</h4>
+                                    <p className="italic text-white text-sm leading-relaxed" dangerouslySetInnerHTML={{ __html: card.example }}></p>
+                                    <TTSButton text={card.exampleRaw} className="mt-4 text-gold-400 hover:bg-gold-500 hover:text-navy-900 bg-white/5" />
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <div className="flex gap-4 mt-8 w-full">
-                        <Button variant="outline" onClick={prevCard} icon={Icons.ChevronLeft} className="flex-1 justify-center py-4 bg-white border-gray-200 hover:border-navy-900">Prev</Button>
+                        <Button variant="ghost" onClick={prevCard} icon={Icons.ChevronLeft} className="flex-1 justify-center py-4 bg-white/50 border border-gray-200">Prev</Button>
                         <Button variant="primary" onClick={nextCard} className="flex-1 justify-center py-4">Next <Icons.ChevronRight size={20}/></Button>
                     </div>
                 </div>
             );
         };
 
-        // 4.2 Dynamic MCQ Quiz
+        // 4.3 Interactive Quiz
         const QuizMCQ = ({ questions }) => {
             const [currentQ, setCurrentQ] = useState(0);
             const [selected, setSelected] = useState(null);
@@ -388,9 +466,7 @@
             const handleAnswer = (index) => {
                 if (selected !== null) return;
                 setSelected(index);
-                const isCorrect = index === questions[currentQ].ans;
-                
-                if (isCorrect) {
+                if (index === questions[currentQ].ans) {
                     playSound('correct');
                     setScore(s => s + 1);
                 } else {
@@ -410,25 +486,14 @@
                 }
             };
 
-            const reset = () => {
-                setCurrentQ(0); setSelected(null); setShowExplanation(false); setScore(0); setIsFinished(false);
-            };
-
             if (isFinished) {
-                const percentage = (score / questions.length) * 100;
+                const perc = (score / questions.length) * 100;
                 return (
-                    <div className="glass-panel p-10 rounded-3xl shadow-xl text-center border-t-8 border-gold-500 animate-fade-in-up">
-                        <Icons.Award size={80} className={`mx-auto mb-6 ${percentage === 100 ? 'text-gold-500 animate-pulse-slow' : 'text-navy-300'}`} />
-                        <h3 className="text-3xl font-extrabold text-navy-900 mb-2">Quiz Completed!</h3>
-                        <p className="text-xl text-gray-600 mb-8">Your Score: <strong className="text-navy-900 text-2xl">{score} / {questions.length}</strong></p>
-                        
-                        {percentage === 100 ? (
-                            <p className="text-green-600 font-bold mb-8">Flawless execution! You are ready for the airport and the stage.</p>
-                        ) : (
-                            <p className="text-orange-500 font-bold mb-8">Great effort! Review the rules and try for a perfect score.</p>
-                        )}
-
-                        <Button onClick={reset} variant="primary" className="mx-auto" icon={Icons.Refresh}>Try Again</Button>
+                    <div className="glass-panel p-10 md:p-14 rounded-3xl shadow-2xl text-center border-t-8 border-gold-500 animate-fade-in-up">
+                        <Icons.Award size={80} className={`mx-auto mb-6 ${perc === 100 ? 'text-gold-500 animate-pulse-slow' : 'text-navy-300'}`} />
+                        <h3 className="text-4xl font-extrabold text-navy-900 mb-4">Quiz Completed!</h3>
+                        <p className="text-xl text-gray-600 mb-8">Score: <strong className="text-navy-900 text-3xl">{score} / {questions.length}</strong></p>
+                        <Button onClick={() => { setCurrentQ(0); setSelected(null); setShowExplanation(false); setScore(0); setIsFinished(false); }} variant="primary" className="mx-auto" icon={Icons.Refresh}>Try Again</Button>
                     </div>
                 );
             }
@@ -436,55 +501,57 @@
             const q = questions[currentQ];
 
             return (
-                <div className="bg-white p-8 md:p-10 rounded-3xl shadow-xl animate-fade-in-right border border-gray-100">
-                    <div className="flex justify-between items-center mb-8 border-b border-gray-100 pb-4">
+                <div className="glass-panel p-8 md:p-12 rounded-[2.5rem] shadow-xl animate-fade-in-right relative overflow-hidden">
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-gold-500 opacity-5 blur-2xl rounded-full"></div>
+                    
+                    <div className="flex justify-between items-center mb-8 border-b border-gray-200/50 pb-4 relative z-10">
                         <Badge color="navy">Question {currentQ + 1} of {questions.length}</Badge>
                         <span className="font-bold text-gray-400">Score: {score}</span>
                     </div>
                     
-                    <h3 className="text-2xl md:text-3xl font-bold text-navy-900 mb-8 leading-tight">{q.text}</h3>
+                    <h3 className="text-2xl md:text-3xl font-bold text-navy-900 mb-8 leading-tight relative z-10">{q.text}</h3>
                     
-                    <div className="space-y-4">
+                    <div className="space-y-4 relative z-10">
                         {q.options.map((opt, idx) => {
                             const isSelected = selected === idx;
                             const isCorrect = q.ans === idx;
                             const showStatus = selected !== null;
                             
-                            let btnClass = "w-full p-5 rounded-xl border-2 text-left font-bold text-lg flex items-center justify-between transition-all duration-300 focus:outline-none ";
+                            let btnClass = "w-full p-5 rounded-2xl border-2 text-left font-bold text-lg flex items-center justify-between transition-all duration-300 ";
                             
                             if (!showStatus) {
-                                btnClass += "border-gray-200 text-navy-800 hover:border-gold-500 hover:bg-gold-50 hover:-translate-y-1 shadow-sm";
+                                btnClass += "border-white bg-white/50 text-navy-800 hover:border-gold-400 hover:bg-white shadow-sm hover:shadow-md hover:-translate-y-1";
                             } else if (isCorrect) {
-                                btnClass += "border-green-500 bg-green-50 text-green-700 shadow-md transform scale-[1.02]";
+                                btnClass += "border-emerald-500 bg-emerald-50 text-emerald-800 shadow-md transform scale-[1.02]";
                             } else if (isSelected && !isCorrect) {
-                                btnClass += "border-red-500 bg-red-50 text-red-700 animate-shake";
+                                btnClass += "border-rose-500 bg-rose-50 text-rose-800 animate-shake";
                             } else {
-                                btnClass += "border-gray-100 text-gray-400 opacity-50";
+                                btnClass += "border-white/50 bg-white/20 text-gray-400 opacity-50";
                             }
 
                             return (
                                 <button key={idx} disabled={showStatus} onClick={() => handleAnswer(idx)} className={btnClass}>
-                                    <span className="flex items-center gap-3">
-                                        <span className={`flex items-center justify-center w-8 h-8 rounded-full text-sm ${!showStatus ? 'bg-gray-100 text-gray-500' : isCorrect ? 'bg-green-200 text-green-800' : isSelected ? 'bg-red-200 text-red-800' : 'bg-gray-100'}`}>
+                                    <span className="flex items-center gap-4">
+                                        <span className={`flex items-center justify-center w-8 h-8 rounded-full text-sm shadow-sm ${!showStatus ? 'bg-white text-navy-500' : isCorrect ? 'bg-emerald-200 text-emerald-900' : isSelected ? 'bg-rose-200 text-rose-900' : 'bg-gray-100 text-gray-400'}`}>
                                             {String.fromCharCode(65 + idx)}
                                         </span>
                                         {opt}
                                     </span>
-                                    {showStatus && isCorrect && <Icons.Check className="text-green-600" size={24} />}
-                                    {showStatus && isSelected && !isCorrect && <Icons.X className="text-red-600" size={24} />}
+                                    {showStatus && isCorrect && <Icons.Check className="text-emerald-600" size={24} />}
+                                    {showStatus && isSelected && !isCorrect && <Icons.X className="text-rose-600" size={24} />}
                                 </button>
                             );
                         })}
                     </div>
 
                     {showExplanation && (
-                        <div className="mt-8 p-6 bg-navy-50 rounded-xl border-l-4 border-navy-900 animate-fade-in-up">
+                        <div className="mt-8 p-6 bg-white/80 rounded-2xl border-l-4 border-gold-500 shadow-sm animate-fade-in-up relative z-10">
                             <div className="flex items-start gap-4">
                                 <Icons.Lightbulb className="text-gold-500 flex-shrink-0 mt-1" />
-                                <div>
+                                <div className="w-full">
                                     <h4 className="text-navy-900 font-bold mb-2 uppercase tracking-widest text-xs">Explanation</h4>
                                     <p className="text-gray-700 mb-6 leading-relaxed">{q.explanation}</p>
-                                    <Button onClick={nextQuestion} variant="primary" className="w-full sm:w-auto" icon={Icons.ChevronRight}>Continue</Button>
+                                    <Button onClick={nextQuestion} variant="secondary" className="w-full sm:w-auto ml-auto" icon={Icons.ChevronRight}>Continue</Button>
                                 </div>
                             </div>
                         </div>
@@ -493,193 +560,13 @@
             );
         };
 
-        // 4.3 Fill in the Blanks Activity
-        const FillInTheBlanks = ({ sentences }) => {
-            const parseSentence = (str) => {
-                const parts = [];
-                let current = "";
-                let inBracket = false;
-                for(let i=0; i<str.length; i++) {
-                    if (str[i] === '{') {
-                        if (current) parts.push({ type: 'text', value: current });
-                        current = "";
-                        inBracket = true;
-                    } else if (str[i] === '}') {
-                        parts.push({ type: 'input', answer: current.toLowerCase() });
-                        current = "";
-                        inBracket = false;
-                    } else {
-                        current += str[i];
-                    }
-                }
-                if (current) parts.push({ type: 'text', value: current });
-                return parts;
-            };
-
-            const [inputs, setInputs] = useState({});
-            const [status, setStatus] = useState({});
-
-            const handleChange = (id, val) => {
-                setInputs(prev => ({ ...prev, [id]: val }));
-                setStatus(prev => ({ ...prev, [id]: null })); 
-            };
-
-            const checkAnswers = () => {
-                let allCorrect = true;
-                const newStatus = {};
-                sentences.forEach((s, sIdx) => {
-                    const parts = parseSentence(s);
-                    parts.forEach((p, pIdx) => {
-                        if (p.type === 'input') {
-                            const id = `${sIdx}-${pIdx}`;
-                            const userVal = (inputs[id] || "").trim().toLowerCase();
-                            if (userVal === p.answer) {
-                                newStatus[id] = 'correct';
-                            } else {
-                                newStatus[id] = 'wrong';
-                                allCorrect = false;
-                            }
-                        }
-                    });
-                });
-                
-                setStatus(newStatus);
-                if (allCorrect) playSound('correct');
-                else playSound('wrong');
-            };
-
-            return (
-                <div className="bg-white p-8 md:p-10 rounded-3xl shadow-xl border border-gray-100 animate-fade-in-up">
-                    <p className="text-gray-500 mb-8 italic">Type the missing words in the blanks to complete this VIP travel diary. Pay attention to context!</p>
-                    
-                    <div className="space-y-8 mb-8">
-                        {sentences.map((sentence, sIdx) => {
-                            const parts = parseSentence(sentence);
-                            return (
-                                <div key={sIdx} className="text-xl md:text-2xl leading-loose text-navy-900 font-light">
-                                    {parts.map((part, pIdx) => {
-                                        if (part.type === 'text') return <span key={pIdx}>{part.value}</span>;
-                                        
-                                        const id = `${sIdx}-${pIdx}`;
-                                        const stat = status[id];
-                                        let inputClass = "fib-input mx-2 bg-transparent border-b-2 text-center font-bold text-gold-600 focus:text-navy-900 placeholder-gray-300 ";
-                                        
-                                        if (stat === 'correct') inputClass += "border-green-500 text-green-600 bg-green-50 rounded-t-md";
-                                        else if (stat === 'wrong') inputClass += "border-red-500 text-red-600 bg-red-50 rounded-t-md animate-shake";
-                                        else inputClass += "border-gray-300";
-
-                                        return (
-                                            <input 
-                                                key={pIdx}
-                                                type="text"
-                                                className={inputClass}
-                                                value={inputs[id] || ""}
-                                                onChange={(e) => handleChange(id, e.target.value)}
-                                                placeholder="..."
-                                                autoComplete="off"
-                                                spellCheck="false"
-                                            />
-                                        );
-                                    })}
-                                </div>
-                            );
-                        })}
-                    </div>
-                    
-                    <div className="flex justify-end pt-6 border-t border-gray-100">
-                        <Button onClick={checkAnswers} variant="primary" icon={Icons.Check}>Check Answers</Button>
-                    </div>
-                </div>
-            );
-        };
-
-        // 4.4 Matching Game
-        const MatchingGame = ({ leftItems, rightItems, successMsg }) => {
-            const [selectedLeft, setSelectedLeft] = useState(null);
-            const [matches, setMatches] = useState([]);
-            const [errorState, setErrorState] = useState(false);
-
-            const handleLeftClick = (id) => {
-                if (!matches.includes(id)) {
-                    setSelectedLeft(id);
-                    playSound('tick');
-                }
-            };
-
-            const handleRightClick = (id) => {
-                if (!selectedLeft || matches.includes(id)) return;
-                
-                if (selectedLeft === id) {
-                    setMatches([...matches, id]);
-                    setSelectedLeft(null);
-                    playSound('correct');
-                } else {
-                    setErrorState(true);
-                    playSound('wrong');
-                    setTimeout(() => setErrorState(false), 500);
-                }
-            };
-
-            const isAllMatched = matches.length === leftItems.length;
-
-            return (
-                <div className="w-full">
-                    {isAllMatched && (
-                        <div className="bg-green-100 text-green-800 p-4 rounded-xl mb-6 font-bold flex items-center justify-center gap-2 animate-fade-in-down">
-                            <Icons.Award /> {successMsg}
-                        </div>
-                    )}
-                    <div className="flex flex-col md:flex-row gap-8 justify-center items-stretch">
-                        
-                        <div className="flex-1 flex flex-col gap-4">
-                            <h4 className="text-center text-gold-600 font-bold mb-2 uppercase tracking-widest text-sm flex items-center justify-center gap-2"><Icons.User size={18}/> Situation</h4>
-                            {leftItems.map(item => {
-                                const isMatched = matches.includes(item.id);
-                                const isSelected = selectedLeft === item.id;
-                                return (
-                                    <div key={item.id} onClick={() => handleLeftClick(item.id)}
-                                        className={`p-5 rounded-xl border-2 cursor-pointer transition-all duration-300 flex items-center justify-between font-medium
-                                            ${isMatched ? 'bg-green-500 border-green-500 text-white opacity-50 scale-95' : 
-                                            isSelected ? 'bg-navy-900 border-navy-900 text-white shadow-lg scale-105' : 
-                                            errorState && isSelected ? 'bg-red-50 border-red-500 text-red-700 animate-shake' : 
-                                            'bg-white border-gray-200 text-gray-700 hover:border-gold-500 shadow-sm hover:shadow-md'}`}
-                                    >
-                                        {item.text}
-                                        {isMatched && <Icons.Check />}
-                                    </div>
-                                );
-                            })}
-                        </div>
-                        
-                        <div className="flex-1 flex flex-col gap-4">
-                            <h4 className="text-center text-gold-600 font-bold mb-2 uppercase tracking-widest text-sm flex items-center justify-center gap-2"><Icons.Message size={18}/> Perfect Phrase</h4>
-                            {rightItems.map((item, idx) => {
-                                const isMatched = matches.includes(item.id);
-                                return (
-                                    <div key={idx} onClick={() => handleRightClick(item.id)}
-                                        className={`p-5 rounded-xl border-2 cursor-pointer transition-all duration-300 flex items-center justify-between
-                                            ${isMatched ? 'bg-green-500 border-green-500 text-white opacity-50 scale-95' : 
-                                            'bg-white border-gray-200 text-navy-900 font-medium hover:border-navy-900 shadow-sm hover:shadow-md'}`}
-                                    >
-                                        <span className="italic">{item.text}</span>
-                                        {!isMatched && <TTSButton text={item.text} className="ml-2 scale-90 bg-gray-50 text-gray-400 hover:text-navy-900" />}
-                                        {isMatched && <Icons.Check />}
-                                    </div>
-                                );
-                            })}
-                        </div>
-                    </div>
-                </div>
-            );
-        };
-
-        // 4.5 Speech Simulator (SVG Timer)
+        // 4.4 Speech Simulator (Pressure Test)
         const SpeechSimulator = ({ prompts }) => {
             const [isActive, setIsActive] = useState(false);
             const [time, setTime] = useState(45);
             const [currentPrompt, setCurrentPrompt] = useState(prompts[0]);
             
-            const radius = 70;
+            const radius = 80;
             const circumference = 2 * Math.PI * radius;
             const strokeDashoffset = circumference - (time / 45) * circumference;
 
@@ -693,68 +580,50 @@
                             return t - 1;
                         });
                     }, 1000);
-                } else if (time === 0) {
-                    setIsActive(false);
-                }
+                } else if (time === 0) setIsActive(false);
                 return () => clearInterval(interval);
             }, [isActive, time]);
 
             const startSimulation = () => {
                 let nextPrompt;
-                do {
-                    nextPrompt = prompts[Math.floor(Math.random() * prompts.length)];
-                } while(nextPrompt === currentPrompt && prompts.length > 1);
-                
-                setCurrentPrompt(nextPrompt);
-                setTime(45);
-                setIsActive(true);
+                do { nextPrompt = prompts[Math.floor(Math.random() * prompts.length)]; } 
+                while(nextPrompt === currentPrompt && prompts.length > 1);
+                setCurrentPrompt(nextPrompt); setTime(45); setIsActive(true);
             };
 
             return (
-                <div className="glass-panel-dark text-white p-10 md:p-14 rounded-[3rem] shadow-2xl flex flex-col items-center text-center relative overflow-hidden w-full max-w-3xl mx-auto border-t-8 border-gold-500">
-                    <div className="absolute top-0 right-0 w-96 h-96 bg-gold-500 rounded-full opacity-10 blur-3xl transform translate-x-1/2 -translate-y-1/2"></div>
+                <div className="bg-gradient-to-br from-navy-900 to-navy-800 text-white p-10 md:p-16 rounded-[3rem] shadow-2xl flex flex-col items-center text-center relative overflow-hidden w-full max-w-4xl mx-auto border-t-8 border-jewel-emerald">
+                    <div className="absolute top-0 right-0 w-96 h-96 bg-jewel-emerald rounded-full opacity-10 blur-3xl transform translate-x-1/3 -translate-y-1/3"></div>
+                    <div className="absolute bottom-0 left-0 w-96 h-96 bg-jewel-sapphire rounded-full opacity-10 blur-3xl transform -translate-x-1/3 translate-y-1/3"></div>
                     
-                    <Icons.Mic size={56} className="text-gold-500 mb-8 animate-pulse-slow" />
+                    <Icons.Mic size={64} className="text-jewel-emerald mb-8 animate-float drop-shadow-lg" />
+                    <Badge color="emerald">Live Interview Simulator</Badge>
                     
-                    <h3 className="text-gold-500 font-bold tracking-widest uppercase text-sm mb-6 flex items-center gap-2">
-                        <Icons.User size={16}/> Interview Question
-                    </h3>
-                    
-                    <p className="text-3xl md:text-4xl font-light mb-12 min-h-[120px] flex items-center justify-center leading-tight">
+                    <p className="text-3xl md:text-5xl font-light mt-8 mb-16 min-h-[140px] flex items-center justify-center leading-tight tracking-tight relative z-10 drop-shadow-sm">
                         "{currentPrompt}"
                     </p>
                     
-                    <div className="relative w-56 h-56 mb-12 flex items-center justify-center">
-                        <svg className="absolute top-0 left-0 w-full h-full drop-shadow-lg" viewBox="0 0 160 160">
-                            <circle cx="80" cy="80" r={radius} stroke="rgba(255,255,255,0.1)" strokeWidth="10" fill="none" />
+                    <div className="relative w-64 h-64 mb-16 flex items-center justify-center">
+                        <svg className="absolute top-0 left-0 w-full h-full drop-shadow-2xl" viewBox="0 0 180 180">
+                            <circle cx="90" cy="90" r={radius} stroke="rgba(255,255,255,0.05)" strokeWidth="12" fill="none" />
                             <circle 
-                                className="progress-ring__circle" 
-                                cx="80" cy="80" r={radius} 
-                                stroke={time <= 10 ? '#ef4444' : '#C5A880'} 
-                                strokeWidth="10" fill="none" 
-                                strokeDasharray={circumference} 
-                                strokeDashoffset={strokeDashoffset} 
-                                strokeLinecap="round"
+                                className="progress-ring__circle" cx="90" cy="90" r={radius} 
+                                stroke={time <= 10 ? '#e11d48' : '#10b981'} strokeWidth="12" fill="none" 
+                                strokeDasharray={circumference} strokeDashoffset={strokeDashoffset} strokeLinecap="round"
                             />
                         </svg>
                         <div className="flex flex-col items-center">
-                            <span className="text-6xl font-bold font-mono tracking-tighter" style={{ color: time <= 10 ? '#ef4444' : 'white' }}>
-                                {time}
-                            </span>
-                            <span className="text-sm text-gray-400 uppercase tracking-widest mt-1">SEC</span>
+                            <span className="text-7xl font-extrabold font-mono tracking-tighter" style={{ color: time <= 10 ? '#e11d48' : 'white' }}>{time}</span>
+                            <span className="text-sm text-gray-400 uppercase tracking-widest mt-2 font-bold">Seconds</span>
                         </div>
                     </div>
 
-                    <div className="h-16 flex items-center justify-center">
-                        {!isActive && time === 45 && (
-                            <Button onClick={startSimulation} variant="secondary" icon={Icons.Play} className="px-10 py-5 text-xl rounded-full">Start 45s Timer</Button>
-                        )}
-                        {!isActive && time === 0 && (
-                            <Button onClick={startSimulation} variant="primary" icon={Icons.Refresh} className="px-8 py-4 bg-white text-navy-900 hover:bg-gray-100 rounded-full">Draw New Question</Button>
-                        )}
+                    <div className="h-20 flex items-center justify-center relative z-10 w-full">
+                        {!isActive && time === 45 && <Button onClick={startSimulation} variant="primary" icon={Icons.Play} className="w-full md:w-auto px-12 py-5 text-xl rounded-full bg-gradient-to-r from-jewel-emerald to-green-600 hover:from-green-500 hover:to-emerald-400 text-white border-none">Start Timer</Button>}
+                        {!isActive && time === 0 && <Button onClick={startSimulation} variant="outline" icon={Icons.Refresh} className="w-full md:w-auto px-10 py-5 bg-white/10 text-white border-white/20 hover:bg-white/20 rounded-full">New Question</Button>}
                         {isActive && (
-                            <div className="flex items-center gap-3 text-gold-400 font-bold text-lg animate-pulse bg-gold-900/30 px-6 py-3 rounded-full border border-gold-500/30">
-                                <div className="w-3 h-3 bg-red-500 rounded-full animate-ping"></div> Speak Loudly & Clearly
+                            <div className="flex items-center gap-4 text-emerald-400 font-bold text-xl animate-pulse bg-emerald-900/40 px-8 py-4 rounded-full border border-emerald-500/30">
+                                <div className="w-4 h-4 bg-red-500 rounded-full animate-ping"></div> Speak Confidently Now
                             </div>
                         )}
                     </div>
@@ -762,153 +631,149 @@
             );
         };
 
-        // 4.6 Confetti Component
-        const Confetti = () => {
-            const [particles, setParticles] = useState([]);
-            useEffect(() => {
-                playSound('fanfare');
-                const colors = ['#C5A880', '#0A192F', '#ffffff', '#e6d5b8', '#d4bd94'];
-                const newParticles = Array.from({ length: 120 }).map((_, i) => ({
-                    id: i,
-                    x: Math.random() * 100,
-                    y: -20 - Math.random() * 50,
-                    size: 6 + Math.random() * 12,
-                    color: colors[Math.floor(Math.random() * colors.length)],
-                    duration: 3 + Math.random() * 5,
-                    delay: Math.random() * 2
-                }));
-                setParticles(newParticles);
-            }, []);
-
-            return (
-                <div className="fixed inset-0 pointer-events-none z-50 overflow-hidden">
-                    {particles.map(p => (
-                        <div key={p.id} className="absolute rounded-sm opacity-90 shadow-sm"
-                            style={{
-                                left: `${p.x}vw`, top: `${p.y}vh`, width: `${p.size}px`, height: `${p.size}px`,
-                                backgroundColor: p.color,
-                                animation: `fall ${p.duration}s cubic-bezier(0.25, 0.46, 0.45, 0.94) ${p.delay}s forwards`,
-                            }}
-                        />
-                    ))}
-                    <style>{`
-                        @keyframes fall {
-                            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-                            100% { transform: translateY(120vh) rotate(1080deg); opacity: 0; }
-                        }
-                    `}</style>
-                </div>
-            );
-        };
-
         // =====================================================================
-        // 5. MASTERCLASS DATA (12 Modules: Travel + Slang)
+        // 5. MASTERCLASS DATA (16 Modules)
         // =====================================================================
 
         const MASTERCLASS_DATA = [
             {
                 id: 'welcome',
-                title: "The Jet-Set Life & Backstage Slang",
-                subtitle: "Introduction",
+                title: "The Jet-Set Life & Stage Slang",
+                subtitle: "Welcome",
                 content: () => (
-                    <div className="text-center animate-fade-in-up flex flex-col items-center">
-                        <Icons.Plane size={80} className="text-gold-500 mb-8 animate-fly" />
-                        <h2 className="text-5xl md:text-6xl font-extrabold text-navy-900 mb-6 tracking-tight">VIP Travel & Stage Slang</h2>
-                        <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto mb-12 leading-relaxed font-light">
-                            Welcome to your new training. Today you will learn <strong className="text-navy-900 font-bold">polite travel grammar</strong> for airports and hotels, plus the elegant <strong className="text-navy-900 font-bold">"slang"</strong> you need to sound natural backstage.
-                        </p>
-                        <div className="flex flex-wrap justify-center gap-4">
-                            <span className="bg-white border border-gray-200 text-navy-900 px-5 py-3 rounded-xl font-bold flex items-center gap-3 shadow-sm hover:-translate-y-1 transition-transform"><Icons.Globe size={18} className="text-gold-500"/> Travel Grammar</span>
-                            <span className="bg-white border border-gray-200 text-navy-900 px-5 py-3 rounded-xl font-bold flex items-center gap-3 shadow-sm hover:-translate-y-1 transition-transform"><Icons.Smile size={18} className="text-gold-500"/> Backstage Slang</span>
+                    <div className="text-center animate-fade-in-up flex flex-col items-center relative">
+                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gold-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
+                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-jewel-sapphire rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob" style={{animationDelay: '2s'}}></div>
+                        
+                        <div className="relative z-10 flex flex-col items-center">
+                            <Icons.Plane size={90} className="text-navy-900 mb-8 animate-fly drop-shadow-xl" />
+                            <h2 className="text-6xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-navy-900 via-navy-700 to-navy-900 mb-6 tracking-tight drop-shadow-sm pb-2">VIP English</h2>
+                            <p className="text-2xl text-gray-600 max-w-3xl mx-auto mb-12 leading-relaxed font-light">
+                                Master <strong className="text-navy-900 font-bold">polite travel grammar</strong> for international airports, and elegant <strong className="text-navy-900 font-bold">"slang"</strong> to bond with your team backstage.
+                            </p>
                         </div>
                     </div>
                 ),
-                note: "Objective: Introduce the dual topic. Traveling globally requires polite English, while being backstage requires a more relaxed, natural 'slang' to bond with the team. Emphasize that 'slang' here means elegant, natural idioms, not street language."
+                note: "Introduce the dual theme: Formal English for traveling/staff, and elegant Slang for the backstage crew. Emphasize that 'slang' here means high-class colloquialisms, not street talk."
             },
             {
                 id: 'travel-grammar-1',
                 title: "Polite Travel Requests",
-                subtitle: "Travel Grammar",
+                subtitle: "Grammar: Modals",
                 content: () => (
                     <div className="w-full max-w-5xl mx-auto animate-fade-in-up">
-                        <div className="bg-white p-10 rounded-[2rem] shadow-xl border-t-8 border-navy-900">
-                            <h3 className="text-3xl font-bold text-navy-900 mb-4">Making Requests like a VIP</h3>
-                            <p className="text-xl text-gray-600 mb-8">Never use "I want" at a hotel or airport. Use <strong className="text-blue-600">Modals</strong> (Could / Would) to sound polite and elegant.</p>
+                        <div className="glass-panel p-10 md:p-14 rounded-[2.5rem] shadow-xl border-t-8 border-navy-900 relative overflow-hidden">
+                            <h3 className="text-3xl md:text-4xl font-extrabold text-navy-900 mb-4 tracking-tight">Making Requests like a VIP</h3>
+                            <p className="text-xl text-gray-600 mb-10 leading-relaxed">Never use "I want" at a hotel or airport. Use <strong className="text-blue-600">Modals</strong> (Could / Would) to sound polite and elegant.</p>
                             
                             <div className="grid md:grid-cols-2 gap-8">
-                                <div className="p-6 bg-blue-50 rounded-2xl border border-blue-100">
+                                <div className="p-8 bg-gradient-to-br from-white to-blue-50 rounded-3xl border border-blue-100 shadow-sm hover:shadow-md transition-shadow">
                                     <Badge color="navy">Could you please...</Badge>
-                                    <p className="text-lg mt-4 mb-2 text-gray-700">Use this to ask someone to do something for you.</p>
-                                    <div className="space-y-3 mt-4">
-                                        <div className="flex items-center gap-3"><TTSButton text="Could you please help me with my luggage?" className="bg-white text-navy-900"/> <span className="italic">"Could you please help me with my luggage?"</span></div>
-                                        <div className="flex items-center gap-3"><TTSButton text="Could you please call a taxi for me?" className="bg-white text-navy-900"/> <span className="italic">"Could you please call a taxi for me?"</span></div>
+                                    <p className="text-lg mt-4 mb-6 text-gray-700">Use this to ask hotel or airport staff to do something for you.</p>
+                                    <div className="space-y-4">
+                                        <div className="flex items-start gap-4"><TTSButton text="Could you please help me with my luggage?" className="bg-white text-navy-900 shadow-sm"/> <span className="italic text-lg pt-2 leading-tight">"Could you please help me with my luggage?"</span></div>
                                     </div>
                                 </div>
-                                <div className="p-6 bg-gold-50 rounded-2xl border border-gold-100">
-                                    <Badge color="gold">Would you mind...</Badge>
-                                    <p className="text-lg mt-4 mb-2 text-gray-700">Very polite! Always followed by a verb ending in <strong className="text-navy-900">-ING</strong>.</p>
-                                    <div className="space-y-3 mt-4">
-                                        <div className="flex items-center gap-3"><TTSButton text="Would you mind checking my reservation?" className="bg-white text-navy-900"/> <span className="italic">"Would you mind <Chunk type="verb">checking</Chunk> my reservation?"</span></div>
-                                        <div className="flex items-center gap-3"><TTSButton text="Would you mind bringing some water?" className="bg-white text-navy-900"/> <span className="italic">"Would you mind <Chunk type="verb">bringing</Chunk> some water?"</span></div>
+                                <div className="p-8 bg-gradient-to-br from-white to-emerald-50 rounded-3xl border border-emerald-100 shadow-sm hover:shadow-md transition-shadow">
+                                    <Badge color="emerald">Would you mind...</Badge>
+                                    <p className="text-lg mt-4 mb-6 text-gray-700">Very polite! Always followed by a verb ending in <strong className="text-emerald-700 bg-emerald-100 px-2 rounded">-ING</strong>.</p>
+                                    <div className="space-y-4">
+                                        <div className="flex items-start gap-4"><TTSButton text="Would you mind checking my reservation?" className="bg-white text-navy-900 shadow-sm"/> <span className="italic text-lg pt-2 leading-tight">"Would you mind <Chunk type="verb">checking</Chunk> my reservation?"</span></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 ),
-                note: "Crucial B1 grammar point: 'Would you mind' MUST be followed by the gerund (-ing). Practice this out loud heavily. 'Would you mind helping... Would you mind opening...'."
+                note: "Crucial B1 point: 'Would you mind' MUST be followed by the gerund (-ing). 'Would you mind HELPING...'. Students often say 'Would you mind to help'. Correct this immediately."
+            },
+            {
+                id: 'clinic-1',
+                title: "Requests & Modals",
+                subtitle: "Speaking Clinic",
+                content: () => (
+                    <PronunciationPractice 
+                        title="The Concierge Desk"
+                        context="Practice making these requests smoothly and politely."
+                        phrases={[
+                            { raw: "Could you please call a taxi for me?", html: "Could you please call a taxi for me?", tip: "Link 'Could' and 'you' to sound like 'Could-ja'." },
+                            { raw: "Would you mind bringing some water?", html: "Would you mind <strong class='text-emerald-600'>bringing</strong> some water?", tip: "Emphasize the -ING ending." },
+                            { raw: "Would you mind keeping my bags here?", html: "Would you mind <strong class='text-emerald-600'>keeping</strong> my bags here?", tip: "Keep a warm, rising intonation at the end." }
+                        ]}
+                    />
+                ),
+                note: "Have the student listen carefully to the TTS rhythm. Then have them use the simulated record button to try to match the natural flow."
             },
             {
                 id: 'travel-grammar-2',
                 title: "Sharing Your Experiences",
-                subtitle: "Travel Grammar",
+                subtitle: "Grammar: Present Perfect",
                 content: () => (
-                    <div className="w-full max-w-4xl mx-auto animate-fade-in-up">
-                        <div className="bg-navy-900 text-white p-10 rounded-[2rem] shadow-xl relative overflow-hidden">
-                            <Icons.MapPin className="absolute top-8 right-8 text-gold-500 opacity-20" size={120} />
+                    <div className="w-full max-w-5xl mx-auto animate-fade-in-up">
+                        <div className="bg-gradient-to-br from-navy-900 to-navy-800 text-white p-10 md:p-14 rounded-[3rem] shadow-2xl relative overflow-hidden border-t-8 border-gold-500">
+                            <Icons.MapPin className="absolute top-10 right-10 text-gold-500 opacity-10" size={160} />
                             
-                            <h3 className="text-3xl font-bold text-gold-500 mb-4 relative z-10">The Present Perfect</h3>
-                            <p className="text-xl text-gray-300 mb-8 relative z-10">When doing interviews abroad, people will ask about your life experiences. Use <strong className="text-white">Have + Past Participle</strong>.</p>
+                            <h3 className="text-3xl md:text-4xl font-extrabold text-gold-400 mb-6 relative z-10 tracking-tight">The Present Perfect</h3>
+                            <p className="text-xl text-gray-300 mb-10 relative z-10 max-w-2xl leading-relaxed">During international interviews, people will ask about your life experiences. Talk about your journey using <strong className="text-white bg-white/20 px-2 py-1 rounded">Have + Past Participle</strong>.</p>
                             
-                            <div className="bg-white/10 p-6 rounded-2xl border border-white/20 mb-6 relative z-10">
-                                <h4 className="font-bold text-gold-400 mb-3 text-sm tracking-widest uppercase">Answering Questions</h4>
-                                <div className="flex items-center gap-4 text-xl mb-4">
-                                    <TTSButton text="I have visited many countries." className="bg-gold-500 text-navy-900" />
-                                    <span>"I <Chunk type="aux">have visited</Chunk> many countries."</span>
-                                </div>
-                                <div className="flex items-center gap-4 text-xl">
-                                    <TTSButton text="This is the best food I have ever tried." className="bg-gold-500 text-navy-900" />
-                                    <span>"This is the best food I <Chunk type="aux">have ever tried</Chunk>."</span>
+                            <div className="bg-white/10 p-8 rounded-3xl border border-white/20 mb-6 relative z-10 backdrop-blur-md">
+                                <h4 className="font-bold text-gold-300 mb-6 text-xs tracking-widest uppercase flex items-center gap-2"><Icons.Star size={16}/> Interview Answers</h4>
+                                <div className="space-y-6">
+                                    <div className="flex items-start gap-5 text-xl md:text-2xl font-light">
+                                        <TTSButton text="I have visited many countries." className="bg-gold-500 text-navy-900 shadow-lg" />
+                                        <span className="pt-2 leading-normal">"I <Chunk type="aux">have visited</Chunk> many countries."</span>
+                                    </div>
+                                    <div className="w-full h-px bg-white/10"></div>
+                                    <div className="flex items-start gap-5 text-xl md:text-2xl font-light">
+                                        <TTSButton text="This is the best food I have ever tried." className="bg-gold-500 text-navy-900 shadow-lg" />
+                                        <span className="pt-2 leading-normal">"This is the best food I <Chunk type="aux">have ever tried</Chunk>."</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 ),
-                note: "B1 students often use Past Simple for experiences (I visited Paris in my life). Correct this to Present Perfect: 'I HAVE visited Paris'. It's essential for pageant interviews when talking about their journey."
+                note: "B1 students often use Past Simple for life experiences (e.g., 'I visited Paris in my life'). Correct this to Present Perfect: 'I HAVE visited Paris'. It sounds much more sophisticated."
+            },
+            {
+                id: 'clinic-2',
+                title: "Life Experiences",
+                subtitle: "Speaking Clinic",
+                content: () => (
+                    <PronunciationPractice 
+                        title="The Interview Room"
+                        context="Practice sharing your travel experiences with confidence."
+                        phrases={[
+                            { raw: "I have visited many countries in Europe.", html: "I <strong class='text-rose-600'>have visited</strong> many countries in Europe.", tip: "You can contract it to 'I've visited' to sound more native." },
+                            { raw: "This is the most beautiful city I have ever seen.", html: "This is the most beautiful city I <strong class='text-rose-600'>have ever seen</strong>.", tip: "Put emphasis on the word 'ever'." }
+                        ]}
+                    />
+                ),
+                note: "Check if the student contracts 'I have' to 'I've'. In spoken English, 'I've visited' flows much better."
             },
             {
                 id: 'travel-vocab',
                 title: "VIP Travel Vocabulary",
-                subtitle: "Flashcards: Airports & Hotels",
+                subtitle: "Flashcards: Airports",
                 content: () => (
                     <div className="w-full animate-fade-in-up">
                         <p className="text-center text-xl text-gray-600 mb-10 max-w-2xl mx-auto">Master these essential words for a smooth international trip.</p>
-                        <FlashcardDeck deckName="Module 4: VIP Travel" cards={[
-                            { term: "Layover", icon: Icons.Plane, def: "A short stay somewhere between two parts of a journey.", example: "I have a two-hour <span class='text-blue-400 font-bold'>layover</span> in Madrid before arriving.", exampleRaw: "I have a two-hour layover in Madrid before arriving." },
-                            { term: "Itinerary", icon: Icons.Briefcase, def: "A detailed plan or route of a journey.", example: "Let me check my <span class='text-blue-400 font-bold'>itinerary</span> for tomorrow's events.", exampleRaw: "Let me check my itinerary for tomorrow's events." },
-                            { term: "Concierge", icon: Icons.User, def: "Hotel staff who helps guests with reservations and info.", example: "Please ask the <span class='text-blue-400 font-bold'>concierge</span> to book a restaurant for us.", exampleRaw: "Please ask the concierge to book a restaurant for us." },
-                            { term: "Complimentary", icon: Icons.Star, def: "Given free of charge.", example: "The hotel offers <span class='text-blue-400 font-bold'>complimentary</span> breakfast for guests.", exampleRaw: "The hotel offers complimentary breakfast for guests." }
+                        <FlashcardDeck deckName="Module 6: Premium Travel" cards={[
+                            { term: "Layover", icon: Icons.Plane, def: "A short stay somewhere between two parts of a journey.", example: "I have a two-hour <span class='text-blue-500 font-bold'>layover</span> in Madrid before arriving.", exampleRaw: "I have a two-hour layover in Madrid before arriving." },
+                            { term: "Itinerary", icon: Icons.Briefcase, def: "A detailed plan or route of a journey.", example: "Let me check my <span class='text-blue-500 font-bold'>itinerary</span> for tomorrow's events.", exampleRaw: "Let me check my itinerary for tomorrow's events." },
+                            { term: "Concierge", icon: Icons.User, def: "Hotel staff who helps guests with reservations and info.", example: "Please ask the <span class='text-blue-500 font-bold'>concierge</span> to book a restaurant for us.", exampleRaw: "Please ask the concierge to book a restaurant for us." },
+                            { term: "Complimentary", icon: Icons.Star, def: "Given free of charge as a courtesy.", example: "The hotel offers <span class='text-blue-500 font-bold'>complimentary</span> breakfast for guests.", exampleRaw: "The hotel offers complimentary breakfast for guests." }
                         ]} />
                     </div>
                 ),
-                note: "Pronunciation check for 'Itinerary' (eye-TIN-er-air-ee) and 'Concierge' (kon-see-ERZH). These are high-class words that make a great impression."
+                note: "Pronunciation check for 'Itinerary' (eye-TIN-er-air-ee) and 'Concierge' (kon-see-ERZH). Drill these words; they make a great impression."
             },
             {
                 id: 'quiz-travel',
                 title: "Travel Checkpoint",
-                subtitle: "Interactive Practice",
+                subtitle: "Interactive Quiz",
                 content: () => (
-                    <div className="w-full max-w-3xl mx-auto">
+                    <div className="w-full max-w-4xl mx-auto">
                         <QuizMCQ questions={[
                             { 
                                 text: "You need help with your bags. What is the most polite way to ask?", 
@@ -936,108 +801,114 @@
                 subtitle: "Backstage Culture",
                 content: () => (
                     <div className="w-full max-w-5xl mx-auto animate-fade-in-up">
-                        <div className="glass-panel p-10 md:p-14 rounded-[3rem] shadow-2xl relative overflow-hidden border-t-8 border-gold-500 text-center">
-                            <Icons.Sparkles size={80} className="text-gold-500 mx-auto mb-6" />
-                            <h3 className="text-3xl font-bold text-navy-900 mb-6">Sounding Natural Behind the Scenes</h3>
-                            <p className="text-xl text-gray-700 mb-8 max-w-2xl mx-auto leading-relaxed">
-                                You use formal English on stage. But when you are resting with the makeup artists, directors, and other girls, you need to use <strong>Idioms</strong> (elegant slang) to sound friendly and natural.
+                        <div className="glass-panel p-10 md:p-16 rounded-[3rem] shadow-2xl relative overflow-hidden border-t-8 border-jewel-amethyst text-center">
+                            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-jewel-amethyst rounded-full mix-blend-multiply filter blur-3xl opacity-5"></div>
+                            
+                            <Icons.Sparkles size={80} className="text-jewel-amethyst mx-auto mb-8 animate-pulse-slow relative z-10" />
+                            <h3 className="text-4xl md:text-5xl font-extrabold text-navy-900 mb-6 tracking-tight relative z-10">Sounding Natural Backstage</h3>
+                            <p className="text-xl md:text-2xl text-gray-700 mb-10 max-w-3xl mx-auto leading-relaxed relative z-10 font-light">
+                                You use formal English on stage. But when resting with makeup artists, directors, and other candidates, you need to use <strong>Idioms</strong> (elegant slang) to sound friendly and build rapport.
                             </p>
-                            <div className="bg-navy-50 p-6 rounded-2xl inline-block border border-navy-100">
-                                <span className="block text-sm font-bold text-navy-400 uppercase tracking-widest mb-2">Formal vs Natural</span>
-                                <div className="text-lg">
-                                    <span className="text-red-500 line-through mr-4">"You did that perfectly."</span>
-                                    <Icons.ChevronRight className="inline text-gray-400 mx-2"/>
-                                    <strong className="text-green-600">"You nailed it!"</strong>
+                            
+                            <div className="bg-white p-8 rounded-3xl inline-block border border-purple-100 shadow-md relative z-10 transform hover:scale-105 transition-transform">
+                                <span className="block text-xs font-bold text-purple-400 uppercase tracking-widest mb-4">Formal vs Natural</span>
+                                <div className="text-2xl font-light flex flex-col md:flex-row items-center gap-4 md:gap-8">
+                                    <span className="text-rose-500 line-through">"You did that perfectly."</span>
+                                    <Icons.ChevronRight className="hidden md:block text-gray-300"/>
+                                    <Icons.ChevronRight className="block md:hidden text-gray-300 transform rotate-90"/>
+                                    <strong className="text-emerald-600 bg-emerald-50 px-4 py-2 rounded-xl">"You nailed it!"</strong>
                                 </div>
                             </div>
                         </div>
                     </div>
                 ),
-                note: "Clarify that 'slang' doesn't mean bad words. It means colloquial, native-like expressions (Idioms) that build teamwork and friendship backstage."
+                note: "Clarify that 'slang' doesn't mean bad words. It means colloquial, native-like expressions (Idioms) that build teamwork and friendship."
             },
             {
                 id: 'vocab-slang',
                 title: "Backstage Expressions",
-                subtitle: "Flashcards: Elegant Slang",
+                subtitle: "Flashcards: Idioms",
                 content: () => (
                     <div className="w-full animate-fade-in-up">
-                        <p className="text-center text-xl text-gray-600 mb-10 max-w-2xl mx-auto">Learn these common phrases to chat with the crew and other candidates.</p>
-                        <FlashcardDeck deckName="Module 7: Backstage Slang" cards={[
-                            { term: "Nailed it", icon: Icons.Star, def: "To do something perfectly or successfully.", example: "You <span class='text-orange-400 font-bold'>nailed it</span> during the interview portion!", exampleRaw: "You nailed it during the interview portion!" },
-                            { term: "On point", icon: Icons.Check, def: "Perfect, flawless, exactly right.", example: "Your makeup and hair are absolutely <span class='text-orange-400 font-bold'>on point</span> today.", exampleRaw: "Your makeup and hair are absolutely on point today." },
-                            { term: "A breeze", icon: Icons.Smile, def: "Something that is very easy to do.", example: "Don't worry about the choreography, it's <span class='text-orange-400 font-bold'>a breeze</span>.", exampleRaw: "Don't worry about the choreography, it's a breeze." },
-                            { term: "Keep your cool", icon: Icons.Heart, def: "To stay calm in a stressful situation.", example: "Even when the music stopped, you managed to <span class='text-orange-400 font-bold'>keep your cool</span>.", exampleRaw: "Even when the music stopped, you managed to keep your cool." },
-                            { term: "Behind the scenes", icon: Icons.User, def: "Things that happen secretly or away from the public eye.", example: "It's very chaotic <span class='text-orange-400 font-bold'>behind the scenes</span> before the show.", exampleRaw: "It's very chaotic behind the scenes before the show." }
+                        <p className="text-center text-xl text-gray-600 mb-10 max-w-2xl mx-auto">Learn these common phrases to chat natively with the crew.</p>
+                        <FlashcardDeck deckName="Module 9: Backstage Slang" cards={[
+                            { term: "Nailed it", icon: Icons.Star, def: "To do something perfectly or successfully.", example: "You <span class='text-orange-500 font-bold'>nailed it</span> during the interview portion!", exampleRaw: "You nailed it during the interview portion!" },
+                            { term: "On point", icon: Icons.Check, def: "Perfect, flawless, exactly right.", example: "Your makeup and hair are absolutely <span class='text-orange-500 font-bold'>on point</span> today.", exampleRaw: "Your makeup and hair are absolutely on point today." },
+                            { term: "A breeze", icon: Icons.Smile, def: "Something that is very easy to do.", example: "Don't worry about the choreography, it's <span class='text-orange-500 font-bold'>a breeze</span>.", exampleRaw: "Don't worry about the choreography, it's a breeze." },
+                            { term: "Keep your cool", icon: Icons.Heart, def: "To stay calm in a stressful situation.", example: "Even when the music stopped, you managed to <span class='text-orange-500 font-bold'>keep your cool</span>.", exampleRaw: "Even when the music stopped, you managed to keep your cool." }
                         ]} />
                     </div>
                 ),
                 note: "Practice using these! Ask the student: 'How was your English class today?' and prompt them to say 'It was a breeze!' or 'I nailed it!'."
             },
             {
-                id: 'slang-match',
-                title: "Social Interactions",
-                subtitle: "Matching Game",
+                id: 'clinic-3',
+                title: "Idioms in Action",
+                subtitle: "Speaking Clinic",
                 content: () => (
-                    <div className="w-full max-w-5xl mx-auto animate-fade-in-up">
-                        <div className="bg-white p-8 md:p-12 rounded-[2rem] shadow-xl border border-gray-100">
-                            <p className="text-center text-xl text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed">
-                                Match the backstage situation on the left with the natural "slang" response on the right.
-                            </p>
-                            <MatchingGame 
-                                successMsg="Perfect Natural Responses!"
-                                leftItems={[
-                                    { id: '1', text: "Your friend just finished a great speech." },
-                                    { id: '2', text: "Looking at a beautiful evening gown." },
-                                    { id: '3', text: "Someone is nervous about the walk." },
-                                    { id: '4', text: "The microphone broke, but she didn't panic." }
-                                ]}
-                                rightItems={[
-                                    { id: '4', text: "\"Wow, she really kept her cool.\"" },
-                                    { id: '1', text: "\"Congratulations, you nailed it!\"" },
-                                    { id: '2', text: "\"That dress is completely on point.\"" },
-                                    { id: '3', text: "\"Don't worry, it's a breeze.\"" }
-                                ]}
-                            />
-                        </div>
-                    </div>
+                    <PronunciationPractice 
+                        title="Backstage Chatter"
+                        context="Practice saying these idioms with enthusiasm and natural flow."
+                        phrases={[
+                            { raw: "Oh my gosh, you completely nailed it!", html: "Oh my gosh, you completely <strong class='text-rose-600'>nailed it!</strong>", tip: "Put the energy and stress on 'nailed'." },
+                            { raw: "Your dress is totally on point.", html: "Your dress is totally <strong class='text-rose-600'>on point.</strong>", tip: "Link the words: 'on-point'." },
+                            { raw: "That rehearsal was a breeze.", html: "That rehearsal was a <strong class='text-rose-600'>breeze.</strong>", tip: "Smile while saying 'breeze' to naturally lighten your tone." }
+                        ]}
+                    />
                 ),
-                note: "This activity tests pragmatics: knowing WHEN to use the slang. Discuss why each response fits the situation perfectly."
+                note: "Idioms require energy. If they say 'You nailed it' with a flat, robotic voice, it loses its meaning. Push them to act excited."
             },
             {
                 id: 'polite-refusal',
                 title: "The Elegant Refusal",
                 subtitle: "Advanced Networking",
                 content: () => (
-                    <div className="w-full max-w-4xl mx-auto animate-fade-in-up">
-                        <div className="bg-navy-900 text-white p-10 rounded-[2rem] shadow-xl relative overflow-hidden">
-                            <Icons.Lock className="absolute top-8 right-8 text-gold-500 opacity-20" size={120} />
+                    <div className="w-full max-w-5xl mx-auto animate-fade-in-up">
+                        <div className="bg-navy-900 text-white p-10 md:p-14 rounded-[3rem] shadow-2xl relative overflow-hidden">
+                            <Icons.Lock className="absolute top-8 right-8 text-gold-500 opacity-10" size={160} />
                             
-                            <h3 className="text-3xl font-bold text-gold-500 mb-6 relative z-10">How to Say "No" Politely</h3>
-                            <p className="text-xl text-gray-300 mb-8 relative z-10 leading-relaxed">
-                                Traveling VIPs often have to decline invitations or offers. A simple "No" is too direct. Use this elegant formula: <br/><strong className="text-white">Gratitude + Soft Refusal + Reason (optional)</strong>.
+                            <h3 className="text-3xl md:text-4xl font-extrabold text-gold-400 mb-6 relative z-10 tracking-tight">How to Say "No" Politely</h3>
+                            <p className="text-xl text-gray-300 mb-10 relative z-10 leading-relaxed max-w-2xl">
+                                Traveling VIPs often have to decline invitations or offers. A simple "No" is too direct and harsh. Use this elegant formula: <br/><br/><strong className="text-navy-900 bg-gold-400 px-4 py-2 rounded-xl inline-block shadow-sm">Gratitude + Soft Refusal + Reason</strong>
                             </p>
                             
                             <div className="space-y-6 relative z-10">
-                                <div className="bg-white/10 p-6 rounded-2xl border border-white/20">
-                                    <h4 className="font-bold text-gold-400 mb-2 text-sm tracking-widest uppercase">Declining Food/Drinks</h4>
-                                    <div className="flex items-center gap-4 text-xl">
-                                        <TTSButton text="That looks wonderful, but I am perfectly fine for now, thank you." className="bg-gold-500 text-navy-900" />
-                                        <span className="font-light">"That looks wonderful, but I am <strong className="text-gold-500">perfectly fine for now</strong>, thank you."</span>
+                                <div className="bg-white/10 p-8 rounded-3xl border border-white/20 backdrop-blur-sm hover:bg-white/15 transition-colors">
+                                    <h4 className="font-bold text-gold-300 mb-4 text-xs tracking-widest uppercase flex items-center gap-2"><Icons.Globe size={16}/> Declining Food/Drinks</h4>
+                                    <div className="flex items-start gap-5 text-xl font-light">
+                                        <TTSButton text="That looks wonderful, but I am perfectly fine for now, thank you." className="bg-gold-500 text-navy-900 shadow-md" />
+                                        <span className="pt-2 leading-relaxed">"That looks wonderful, but I am <strong className="text-gold-400 font-bold">perfectly fine for now</strong>, thank you."</span>
                                     </div>
                                 </div>
                                 
-                                <div className="bg-white/10 p-6 rounded-2xl border border-white/20">
-                                    <h4 className="font-bold text-gold-400 mb-2 text-sm tracking-widest uppercase">Declining an Invitation</h4>
-                                    <div className="flex items-center gap-4 text-xl">
-                                        <TTSButton text="I would love to join you, but unfortunately I have an early start tomorrow." className="bg-gold-500 text-navy-900" />
-                                        <span className="font-light">"I <strong className="text-gold-500">would love to</strong> join you, but unfortunately I have an early start tomorrow."</span>
+                                <div className="bg-white/10 p-8 rounded-3xl border border-white/20 backdrop-blur-sm hover:bg-white/15 transition-colors">
+                                    <h4 className="font-bold text-gold-300 mb-4 text-xs tracking-widest uppercase flex items-center gap-2"><Icons.User size={16}/> Declining an Invitation</h4>
+                                    <div className="flex items-start gap-5 text-xl font-light">
+                                        <TTSButton text="I would love to join you, but unfortunately I have an early start tomorrow." className="bg-gold-500 text-navy-900 shadow-md" />
+                                        <span className="pt-2 leading-relaxed">"I <strong className="text-gold-400 font-bold">would love to</strong> join you, but unfortunately I have an early start tomorrow."</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 ),
-                note: "Crucial life skill for pageants! Roleplay this. Offer the student a glass of champagne or an invitation to a late-night party, and have them use these exact formulas to decline elegantly."
+                note: "Crucial life skill for public figures! Roleplay this immediately. Offer the student a glass of champagne or an invitation to a late-night party, and have them use these exact formulas to decline gracefully."
+            },
+            {
+                id: 'clinic-4',
+                title: "Graceful Declines",
+                subtitle: "Speaking Clinic",
+                content: () => (
+                    <PronunciationPractice 
+                        title="The VIP Reception"
+                        context="Practice saying 'No' while sounding warm and appreciative."
+                        phrases={[
+                            { raw: "That looks wonderful, but I am perfectly fine for now.", html: "That looks wonderful, but I am <strong class='text-gold-600'>perfectly fine for now.</strong>", tip: "Keep your tone light and polite on 'fine for now'." },
+                            { raw: "I would love to, but unfortunately I need to rest.", html: "I would love to, but <strong class='text-gold-600'>unfortunately</strong> I need to rest.", tip: "Add a slight empathetic pause before 'unfortunately'." }
+                        ]}
+                    />
+                ),
+                note: "Watch their body language here. A polite refusal in English should be accompanied by a warm smile and a soft shake of the head, not a stern look."
             },
             {
                 id: 'fill-blanks-travel',
@@ -1058,7 +929,7 @@
             {
                 id: 'speech-sim-travel',
                 title: "Under Pressure",
-                subtitle: "Speech Simulator",
+                subtitle: "Live Speech Simulator",
                 content: () => (
                     <div className="w-full animate-fade-in-up">
                         <SpeechSimulator prompts={[
@@ -1077,24 +948,30 @@
                 title: "Global VIP Certified",
                 subtitle: "Masterclass Complete",
                 content: () => (
-                    <div className="text-center animate-fade-in-up bg-white p-10 md:p-16 rounded-[3rem] shadow-2xl border border-gray-100 relative overflow-hidden max-w-3xl mx-auto">
+                    <div className="text-center animate-fade-in-up glass-panel p-10 md:p-16 rounded-[3rem] shadow-2xl border-t-8 border-gold-500 relative overflow-hidden max-w-4xl mx-auto">
                         <Confetti />
-                        <div className="absolute top-0 left-0 w-full h-4 bg-gradient-to-r from-gold-300 via-gold-500 to-navy-900"></div>
-                        <Icons.Globe size={100} className="mx-auto text-gold-500 mb-8 animate-bounce-slight" />
+                        <div className="absolute top-0 right-0 w-64 h-64 bg-gold-400 rounded-full opacity-20 blur-3xl translate-x-1/2 -translate-y-1/2"></div>
+                        <div className="absolute bottom-0 left-0 w-64 h-64 bg-emerald-400 rounded-full opacity-20 blur-3xl -translate-x-1/2 translate-y-1/2"></div>
                         
-                        <h2 className="text-5xl font-extrabold text-navy-900 mb-4 tracking-tight">Congratulations!</h2>
-                        <p className="text-2xl text-gray-600 mb-10 font-light">You are ready to travel the world and own the backstage.</p>
+                        <Icons.Globe size={120} className="mx-auto text-gold-500 mb-8 animate-bounce-slight relative z-10 drop-shadow-lg" />
                         
-                        <div className="bg-navy-50 p-8 rounded-3xl text-left border border-navy-100 shadow-inner">
-                            <h4 className="font-bold text-navy-900 mb-6 uppercase text-sm tracking-widest flex items-center gap-2">
-                                <Icons.Briefcase size={18}/> Your Travel Kit
+                        <h2 className="text-5xl md:text-6xl font-extrabold text-navy-900 mb-6 tracking-tight relative z-10">Congratulations!</h2>
+                        <p className="text-2xl text-gray-700 mb-12 font-light relative z-10">You are fully equipped to travel the world and own the backstage.</p>
+                        
+                        <div className="bg-white/80 p-8 md:p-10 rounded-3xl text-left border border-white shadow-xl relative z-10">
+                            <h4 className="font-bold text-navy-900 mb-6 uppercase text-sm tracking-widest flex items-center gap-3">
+                                <span className="bg-navy-100 p-2 rounded-lg"><Icons.Briefcase size={20} className="text-navy-700"/></span> Your VIP Communication Kit
                             </h4>
-                            <ul className="space-y-4 text-gray-800 text-lg font-medium">
-                                <li className="flex items-center gap-3"><span className="p-1 bg-green-200 text-green-700 rounded-full"><Icons.Check size={16}/></span> Elegant Requests <em>("Would you mind...")</em></li>
-                                <li className="flex items-center gap-3"><span className="p-1 bg-green-200 text-green-700 rounded-full"><Icons.Check size={16}/></span> VIP Vocabulary <em>(Concierge, Itinerary)</em></li>
-                                <li className="flex items-center gap-3"><span className="p-1 bg-green-200 text-green-700 rounded-full"><Icons.Check size={16}/></span> Natural Slang <em>("Nailed it", "On point")</em></li>
-                                <li className="flex items-center gap-3"><span className="p-1 bg-green-200 text-green-700 rounded-full"><Icons.Check size={16}/></span> The Elegant Refusal <em>("I am perfectly fine...")</em></li>
-                            </ul>
+                            <div className="grid md:grid-cols-2 gap-6">
+                                <ul className="space-y-4 text-gray-800 text-lg font-medium">
+                                    <li className="flex items-center gap-3"><span className="p-1.5 bg-emerald-100 text-emerald-700 rounded-full shadow-sm"><Icons.Check size={16}/></span> Elegant Requests <em>("Would you mind...")</em></li>
+                                    <li className="flex items-center gap-3"><span className="p-1.5 bg-emerald-100 text-emerald-700 rounded-full shadow-sm"><Icons.Check size={16}/></span> Experiences <em>("I have visited...")</em></li>
+                                </ul>
+                                <ul className="space-y-4 text-gray-800 text-lg font-medium">
+                                    <li className="flex items-center gap-3"><span className="p-1.5 bg-emerald-100 text-emerald-700 rounded-full shadow-sm"><Icons.Check size={16}/></span> Natural Slang <em>("Nailed it")</em></li>
+                                    <li className="flex items-center gap-3"><span className="p-1.5 bg-emerald-100 text-emerald-700 rounded-full shadow-sm"><Icons.Check size={16}/></span> The Polite Refusal <em>("Perfectly fine")</em></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 ),
@@ -1103,7 +980,7 @@
         ];
 
         // =====================================================================
-        // 6. MAIN APPLICATION SHELL (Layout, State, Routing)
+        // 6. MAIN APPLICATION SHELL
         // =====================================================================
 
         const App = () => {
@@ -1114,7 +991,7 @@
             const mainRef = useRef(null);
 
             useEffect(() => {
-                const saved = localStorage.getItem('masterclassTravelB1');
+                const saved = localStorage.getItem('masterclassVIPTravel');
                 if (saved) {
                     const parsed = parseInt(saved, 10);
                     setMaxUnlocked(parsed);
@@ -1125,7 +1002,7 @@
             useEffect(() => {
                 if (currentSlide > maxUnlocked) {
                     setMaxUnlocked(currentSlide);
-                    localStorage.setItem('masterclassTravelB1', currentSlide);
+                    localStorage.setItem('masterclassVIPTravel', currentSlide);
                 }
             }, [currentSlide, maxUnlocked]);
 
@@ -1146,36 +1023,34 @@
 
             const nextSlide = () => setCurrentSlide(p => Math.min(p + 1, MASTERCLASS_DATA.length - 1));
             const prevSlide = () => setCurrentSlide(p => Math.max(p - 1, 0));
-            
-            const goToSlide = (idx) => {
-                setCurrentSlide(idx);
-                setShowMenu(false);
-            };
+            const goToSlide = (idx) => { setCurrentSlide(idx); setShowMenu(false); };
 
             const slide = MASTERCLASS_DATA[currentSlide];
 
             return (
-                <div className="h-[100dvh] flex flex-col font-sans overflow-hidden bg-[#F8F9FA] text-gray-800">
+                <div className="h-[100dvh] flex flex-col font-sans overflow-hidden bg-gradient-to-br from-[#F8F9FA] to-[#E2E8F0] text-gray-800">
                     
                     {/* HEADER */}
-                    <header className="bg-navy-900 text-white h-[72px] flex items-center justify-between px-4 md:px-8 shadow-md relative z-40">
+                    <header className="bg-navy-900 text-white h-[72px] flex items-center justify-between px-4 md:px-8 shadow-xl relative z-40">
                         <div className="flex items-center gap-4">
                             <button onClick={() => setShowMenu(!showMenu)} className="p-2 hover:bg-navy-800 rounded-xl transition-colors focus:outline-none focus:ring-2 focus:ring-gold-500">
                                 {showMenu ? <Icons.X size={26} /> : <Icons.Menu size={26} />}
                             </button>
-                            <div className="flex items-center gap-2">
-                                <Icons.Plane className="text-gold-500 hidden sm:block" size={20}/>
+                            <div className="flex items-center gap-3">
+                                <div className="bg-gradient-to-br from-gold-400 to-gold-600 p-1.5 rounded-lg shadow-sm hidden sm:block">
+                                    <Icons.Plane className="text-navy-900" size={18}/>
+                                </div>
                                 <h1 className="font-bold text-lg tracking-wide hidden md:block text-white">VIP Travel Masterclass</h1>
                             </div>
                         </div>
                         
                         <div className="flex-1 max-w-xl mx-8">
-                            <div className="bg-navy-800 h-2.5 rounded-full overflow-hidden shadow-inner">
+                            <div className="bg-navy-800 h-2.5 rounded-full overflow-hidden shadow-inner border border-navy-700">
                                 <div 
-                                    className="bg-gradient-to-r from-gold-600 to-gold-400 h-full transition-all duration-700 ease-out relative"
+                                    className="bg-gradient-to-r from-gold-400 via-gold-500 to-emerald-400 h-full transition-all duration-700 ease-out relative"
                                     style={{ width: `${((currentSlide + 1) / MASTERCLASS_DATA.length) * 100}%` }}
                                 >
-                                    <div className="absolute top-0 right-0 bottom-0 left-0 bg-white/20 animate-pulse-slow"></div>
+                                    <div className="absolute top-0 right-0 bottom-0 left-0 bg-white/30 animate-pulse-slow"></div>
                                 </div>
                             </div>
                         </div>
@@ -1192,9 +1067,9 @@
                     {/* MAIN BODY */}
                     <div className="flex flex-1 relative overflow-hidden">
                         
-                        {/* Navigation Drawer Menu */}
-                        <div className={`absolute top-0 left-0 h-full w-80 bg-white shadow-2xl z-30 transition-transform duration-300 ease-in-out transform flex flex-col ${showMenu ? 'translate-x-0' : '-translate-x-full'}`}>
-                            <div className="p-6 h-full overflow-y-auto bg-gray-50 border-r border-gray-200">
+                        {/* Drawer Menu */}
+                        <div className={`absolute top-0 left-0 h-full w-80 bg-white/95 backdrop-blur-md shadow-2xl z-30 transition-transform duration-300 ease-in-out transform flex flex-col border-r border-gray-200/50 ${showMenu ? 'translate-x-0' : '-translate-x-full'}`}>
+                            <div className="p-6 h-full overflow-y-auto">
                                 <h3 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-6 flex items-center gap-2">
                                     <Icons.Menu size={16}/> Course Modules
                                 </h3>
@@ -1207,15 +1082,15 @@
                                                 key={item.id}
                                                 onClick={() => goToSlide(idx)}
                                                 disabled={isLocked}
-                                                className={`w-full text-left p-4 rounded-xl text-sm transition-all duration-200 flex items-center gap-3
-                                                    ${isActive ? 'bg-navy-900 text-white font-bold shadow-md transform scale-[1.02]' : 
-                                                    isLocked ? 'opacity-50 cursor-not-allowed text-gray-400 bg-gray-100 border border-gray-200' : 'hover:bg-white border border-transparent hover:border-gray-200 hover:shadow-sm text-navy-800'}`}
+                                                className={`w-full text-left p-4 rounded-2xl text-sm transition-all duration-300 flex items-center gap-3
+                                                    ${isActive ? 'bg-gradient-to-r from-navy-800 to-navy-900 text-white font-bold shadow-lg transform scale-[1.02] border border-navy-700' : 
+                                                    isLocked ? 'opacity-50 cursor-not-allowed text-gray-400 bg-gray-50 border border-gray-100' : 'hover:bg-white border border-transparent hover:border-gray-200 hover:shadow-md text-navy-800 bg-gray-50/50'}`}
                                             >
-                                                <div className={`flex items-center justify-center w-6 h-6 rounded-full text-xs font-bold flex-shrink-0 ${isActive ? 'bg-gold-500 text-navy-900' : isLocked ? 'bg-gray-200 text-gray-500' : 'bg-navy-100 text-navy-900'}`}>
+                                                <div className={`flex items-center justify-center w-7 h-7 rounded-full text-xs font-bold flex-shrink-0 shadow-sm ${isActive ? 'bg-gold-500 text-navy-900' : isLocked ? 'bg-gray-200 text-gray-500' : 'bg-white text-navy-900 border border-gray-200'}`}>
                                                     {isLocked ? <Icons.Lock size={12}/> : idx + 1}
                                                 </div>
                                                 <span className="truncate flex-1">{item.title}</span>
-                                                {!isLocked && !isActive && <Icons.Check size={16} className="text-green-500 flex-shrink-0 opacity-50"/>}
+                                                {!isLocked && !isActive && <Icons.Check size={16} className="text-emerald-500 flex-shrink-0"/>}
                                             </button>
                                         );
                                     })}
@@ -1223,27 +1098,20 @@
                             </div>
                         </div>
 
-                        {showMenu && (
-                            <div 
-                                className="absolute inset-0 bg-navy-900/20 backdrop-blur-sm z-20"
-                                onClick={() => setShowMenu(false)}
-                            ></div>
-                        )}
+                        {showMenu && <div className="absolute inset-0 bg-navy-900/30 backdrop-blur-sm z-20" onClick={() => setShowMenu(false)}></div>}
 
-                        {/* Slide Content Area */}
+                        {/* Content Area */}
                         <main ref={mainRef} className="flex-1 overflow-y-auto relative bg-dot-pattern scroll-smooth">
                             <div className="max-w-7xl mx-auto px-4 sm:px-8 py-10 md:py-16 min-h-full flex flex-col relative z-10">
-                                
                                 <div className="my-auto w-full">
                                     <div className="text-center mb-12 md:mb-16 animate-fade-in-down">
-                                        <span className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-gold-50 text-gold-700 font-bold tracking-[0.2em] uppercase text-xs mb-6 shadow-sm border border-gold-200">
-                                            Module {currentSlide + 1} <span className="text-gold-300">•</span> {slide.subtitle}
+                                        <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/80 backdrop-blur-sm text-navy-800 font-bold tracking-[0.2em] uppercase text-xs mb-6 shadow-sm border border-gray-200">
+                                            Module {currentSlide + 1} <span className="text-gold-500">•</span> {slide.subtitle}
                                         </span>
-                                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-navy-900 tracking-tight leading-tight px-4">
+                                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-navy-900 to-navy-600 tracking-tight leading-tight px-4 pb-2 drop-shadow-sm">
                                             {slide.title}
                                         </h2>
                                     </div>
-                                    
                                     <div className="flex justify-center w-full pb-8 md:pb-16">
                                         {slide.content()}
                                     </div>
@@ -1251,24 +1119,22 @@
                             </div>
                         </main>
 
-                        {/* Teacher Notes Sidebar Panel */}
-                        <aside className={`w-80 md:w-96 bg-white border-l border-gray-200 shadow-[-10px_0_30px_rgba(0,0,0,0.05)] z-20 transition-transform duration-300 ease-in-out absolute right-0 h-full ${showNotes ? 'translate-x-0' : 'translate-x-full'}`}>
-                            <div className="p-8 h-full flex flex-col bg-gray-50">
+                        {/* Teacher Notes */}
+                        <aside className={`w-80 md:w-96 bg-white/95 backdrop-blur-md border-l border-gray-200 shadow-[-20px_0_40px_rgba(0,0,0,0.05)] z-20 transition-transform duration-300 ease-in-out absolute right-0 h-full ${showNotes ? 'translate-x-0' : 'translate-x-full'}`}>
+                            <div className="p-8 h-full flex flex-col">
                                 <h3 className="text-xl font-extrabold text-navy-900 border-b-2 border-gold-500 pb-4 mb-8 flex items-center gap-3">
-                                    <Icons.Lightbulb className="text-gold-500" /> Pedagogical Guide
+                                    <div className="bg-gold-100 p-2 rounded-lg text-gold-600"><Icons.Lightbulb size={20} /></div> Pedagogical Guide
                                 </h3>
-                                
-                                <div className="bg-white p-6 rounded-2xl border border-gold-200 shadow-sm text-gray-700 text-sm leading-relaxed flex-1 overflow-y-auto relative">
-                                    <div className="absolute top-0 left-0 w-1 h-full bg-gold-500 rounded-l-2xl"></div>
-                                    <span className="block font-bold text-gold-700 mb-4 uppercase tracking-widest text-xs flex items-center gap-2">
+                                <div className="bg-gradient-to-br from-white to-gray-50 p-6 rounded-3xl border border-gray-200 shadow-sm text-gray-700 text-sm leading-relaxed flex-1 overflow-y-auto relative">
+                                    <div className="absolute top-0 left-0 w-1.5 h-full bg-gradient-to-b from-gold-400 to-gold-600 rounded-l-3xl"></div>
+                                    <span className="block font-bold text-gold-600 mb-4 uppercase tracking-widest text-xs flex items-center gap-2">
                                         <Icons.Star size={14}/> Slide Instructions:
                                     </span>
                                     <p className="text-base text-navy-800 leading-loose">
                                         {slide.note}
                                     </p>
                                 </div>
-                                
-                                <div className="mt-6 text-center text-xs text-gray-400 font-medium uppercase tracking-widest">
+                                <div className="mt-6 text-center text-xs text-gray-400 font-bold uppercase tracking-widest bg-gray-50 py-3 rounded-xl border border-gray-100">
                                     Slide {currentSlide + 1} of {MASTERCLASS_DATA.length}
                                 </div>
                             </div>
@@ -1277,20 +1143,20 @@
                     </div>
 
                     {/* BOTTOM NAVIGATION BAR */}
-                    <footer className="bg-white border-t border-gray-200 h-24 px-6 md:px-12 flex justify-between items-center z-40 shadow-[0_-5px_20px_rgba(0,0,0,0.03)] relative">
+                    <footer className="bg-white/90 backdrop-blur-md border-t border-gray-200 h-24 px-6 md:px-12 flex justify-between items-center z-40 shadow-[0_-10px_30px_rgba(0,0,0,0.02)] relative">
                         <Button 
                             onClick={prevSlide}
                             disabled={currentSlide === 0}
                             variant="ghost"
-                            className="text-gray-500 border-2 border-gray-200 bg-white hover:border-navy-900 hover:text-navy-900 px-4 md:px-8 py-4"
+                            className="text-gray-500 border-2 border-gray-200 bg-white hover:border-navy-900 hover:text-navy-900 hover:bg-gray-50 px-4 md:px-8 py-4 shadow-sm"
                             icon={null} 
                         >
                             <Icons.ChevronLeft size={24} /> <span className="hidden md:inline text-lg font-bold">Previous</span>
                         </Button>
                         
-                        <div className="flex gap-2 hidden lg:flex">
+                        <div className="flex gap-2.5 hidden lg:flex">
                             {MASTERCLASS_DATA.map((_, idx) => (
-                                <div key={idx} className={`h-2.5 rounded-full transition-all duration-300 ${idx === currentSlide ? 'w-8 bg-gold-500' : idx < maxUnlocked ? 'w-2.5 bg-navy-200' : 'w-2.5 bg-gray-200'}`}></div>
+                                <div key={idx} className={`h-2.5 rounded-full transition-all duration-500 ${idx === currentSlide ? 'w-10 bg-gold-500 shadow-md' : idx < maxUnlocked ? 'w-2.5 bg-navy-200 hover:bg-navy-300 cursor-pointer' : 'w-2.5 bg-gray-200'}`} onClick={() => idx <= maxUnlocked && goToSlide(idx)}></div>
                             ))}
                         </div>
 
@@ -1298,7 +1164,7 @@
                             onClick={nextSlide}
                             disabled={currentSlide === MASTERCLASS_DATA.length - 1}
                             variant="primary"
-                            className="px-6 md:px-10 py-4 text-lg"
+                            className="px-6 md:px-10 py-4 text-lg shadow-xl"
                         >
                             <span className="hidden md:inline">Continue</span> <Icons.ChevronRight size={24} />
                         </Button>
