@@ -296,7 +296,7 @@
         // 4. INTERACTIVE ACTIVITY COMPONENTS
         // =====================================================================
 
-        // 4.1 Pronunciation & Speaking Practice Clinic (NEW)
+        // 4.1 Pronunciation & Speaking Practice Clinic
         const PronunciationPractice = ({ title, context, phrases }) => {
             const [currentIdx, setCurrentIdx] = useState(0);
             const [isRecording, setIsRecording] = useState(false);
@@ -308,7 +308,6 @@
                 setIsRecording(true);
                 setFeedback(null);
                 
-                // Simulate recording time and AI analysis
                 setTimeout(() => {
                     setIsRecording(false);
                     const feedbacks = [
@@ -331,7 +330,6 @@
                 <div className="w-full max-w-4xl mx-auto animate-fade-in-up">
                     <div className="glass-panel p-8 md:p-12 rounded-[2.5rem] shadow-2xl border-t-8 border-jewel-rose relative overflow-hidden">
                         
-                        {/* Decorative background gradients */}
                         <div className="absolute top-0 right-0 w-64 h-64 bg-jewel-rose rounded-full opacity-10 blur-3xl translate-x-1/2 -translate-y-1/2"></div>
                         <div className="absolute bottom-0 left-0 w-64 h-64 bg-jewel-sapphire rounded-full opacity-10 blur-3xl -translate-x-1/2 translate-y-1/2"></div>
 
@@ -386,7 +384,6 @@
 
                         </div>
 
-                        {/* Feedback & Next Button Area */}
                         <div className="mt-8 min-h-[80px] flex flex-col items-center justify-center relative z-10">
                             {feedback && (
                                 <div className="animate-fade-in-up flex flex-col items-center">
@@ -404,7 +401,6 @@
                 </div>
             );
         };
-
 
         // 4.2 3D Flashcards Deck
         const FlashcardDeck = ({ cards, deckName }) => {
@@ -560,7 +556,226 @@
             );
         };
 
-        // 4.4 Speech Simulator (Pressure Test)
+        // 4.4 Matching Game
+        const MatchingGame = ({ leftItems, rightItems, successMsg }) => {
+            const [selectedLeft, setSelectedLeft] = useState(null);
+            const [matches, setMatches] = useState([]);
+            const [errorState, setErrorState] = useState(false);
+
+            const handleLeftClick = (id) => {
+                if (!matches.includes(id)) {
+                    setSelectedLeft(id);
+                    playSound('tick');
+                }
+            };
+
+            const handleRightClick = (id) => {
+                if (!selectedLeft || matches.includes(id)) return;
+                
+                if (selectedLeft === id) {
+                    setMatches([...matches, id]);
+                    setSelectedLeft(null);
+                    playSound('correct');
+                } else {
+                    setErrorState(true);
+                    playSound('wrong');
+                    setTimeout(() => setErrorState(false), 500);
+                }
+            };
+
+            const isAllMatched = matches.length === leftItems.length;
+
+            return (
+                <div className="w-full">
+                    {isAllMatched && (
+                        <div className="bg-emerald-100 text-emerald-800 p-4 rounded-xl mb-6 font-bold flex items-center justify-center gap-2 animate-fade-in-down border border-emerald-200 shadow-sm">
+                            <Icons.Award /> {successMsg}
+                        </div>
+                    )}
+                    <div className="flex flex-col md:flex-row gap-8 justify-center items-stretch">
+                        
+                        <div className="flex-1 flex flex-col gap-4">
+                            <h4 className="text-center text-gold-600 font-bold mb-2 uppercase tracking-widest text-sm flex items-center justify-center gap-2"><Icons.User size={18}/> Situation</h4>
+                            {leftItems.map(item => {
+                                const isMatched = matches.includes(item.id);
+                                const isSelected = selectedLeft === item.id;
+                                return (
+                                    <div key={item.id} onClick={() => handleLeftClick(item.id)}
+                                        className={`p-5 rounded-2xl border-2 cursor-pointer transition-all duration-300 flex items-center justify-between font-medium
+                                            ${isMatched ? 'bg-emerald-500 border-emerald-500 text-white opacity-50 scale-95' : 
+                                            isSelected ? 'bg-navy-900 border-navy-900 text-white shadow-lg scale-105' : 
+                                            errorState && isSelected ? 'bg-rose-50 border-rose-500 text-rose-700 animate-shake' : 
+                                            'bg-white/80 border-gray-200 text-navy-800 hover:border-gold-400 shadow-sm hover:shadow-md'}`}
+                                    >
+                                        {item.text}
+                                        {isMatched && <Icons.Check />}
+                                    </div>
+                                );
+                            })}
+                        </div>
+                        
+                        <div className="flex-1 flex flex-col gap-4">
+                            <h4 className="text-center text-gold-600 font-bold mb-2 uppercase tracking-widest text-sm flex items-center justify-center gap-2"><Icons.Message size={18}/> Perfect Phrase</h4>
+                            {rightItems.map((item, idx) => {
+                                const isMatched = matches.includes(item.id);
+                                return (
+                                    <div key={idx} onClick={() => handleRightClick(item.id)}
+                                        className={`p-5 rounded-2xl border-2 cursor-pointer transition-all duration-300 flex items-center justify-between
+                                            ${isMatched ? 'bg-emerald-500 border-emerald-500 text-white opacity-50 scale-95' : 
+                                            'bg-white/80 border-gray-200 text-navy-900 font-medium hover:border-navy-900 shadow-sm hover:shadow-md'}`}
+                                    >
+                                        <span className="italic">{item.text}</span>
+                                        {!isMatched && <TTSButton text={item.text} className="ml-2 scale-90 bg-gray-50 text-gray-400 hover:text-navy-900 hover:bg-gray-100" />}
+                                        {isMatched && <Icons.Check />}
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    </div>
+                </div>
+            );
+        };
+
+        // 4.5 Fill in the Blanks Activity
+        const FillInTheBlanks = ({ sentences }) => {
+            const parseSentence = (str) => {
+                const parts = [];
+                let current = "";
+                let inBracket = false;
+                for(let i=0; i<str.length; i++) {
+                    if (str[i] === '{') {
+                        if (current) parts.push({ type: 'text', value: current });
+                        current = "";
+                        inBracket = true;
+                    } else if (str[i] === '}') {
+                        parts.push({ type: 'input', answer: current.toLowerCase() });
+                        current = "";
+                        inBracket = false;
+                    } else {
+                        current += str[i];
+                    }
+                }
+                if (current) parts.push({ type: 'text', value: current });
+                return parts;
+            };
+
+            const [inputs, setInputs] = useState({});
+            const [status, setStatus] = useState({});
+
+            const handleChange = (id, val) => {
+                setInputs(prev => ({ ...prev, [id]: val }));
+                setStatus(prev => ({ ...prev, [id]: null })); 
+            };
+
+            const checkAnswers = () => {
+                let allCorrect = true;
+                const newStatus = {};
+                sentences.forEach((s, sIdx) => {
+                    const parts = parseSentence(s);
+                    parts.forEach((p, pIdx) => {
+                        if (p.type === 'input') {
+                            const id = `${sIdx}-${pIdx}`;
+                            const userVal = (inputs[id] || "").trim().toLowerCase();
+                            if (userVal === p.answer) {
+                                newStatus[id] = 'correct';
+                            } else {
+                                newStatus[id] = 'wrong';
+                                allCorrect = false;
+                            }
+                        }
+                    });
+                });
+                
+                setStatus(newStatus);
+                if (allCorrect) playSound('correct');
+                else playSound('wrong');
+            };
+
+            return (
+                <div className="glass-panel p-8 md:p-12 rounded-[2.5rem] shadow-xl border-t-8 border-gold-500 animate-fade-in-up">
+                    <p className="text-gray-500 mb-8 italic text-center">Type the missing words in the blanks to complete this VIP travel diary. Pay attention to context!</p>
+                    
+                    <div className="space-y-8 mb-8">
+                        {sentences.map((sentence, sIdx) => {
+                            const parts = parseSentence(sentence);
+                            return (
+                                <div key={sIdx} className="text-xl md:text-2xl leading-loose text-navy-900 font-light bg-white/50 p-6 rounded-2xl border border-white">
+                                    {parts.map((part, pIdx) => {
+                                        if (part.type === 'text') return <span key={pIdx}>{part.value}</span>;
+                                        
+                                        const id = `${sIdx}-${pIdx}`;
+                                        const stat = status[id];
+                                        let inputClass = "fib-input mx-2 bg-transparent border-b-2 text-center font-bold text-gold-600 focus:text-navy-900 placeholder-gray-300 ";
+                                        
+                                        if (stat === 'correct') inputClass += "border-emerald-500 text-emerald-600 bg-emerald-50 rounded-t-md";
+                                        else if (stat === 'wrong') inputClass += "border-rose-500 text-rose-600 bg-rose-50 rounded-t-md animate-shake";
+                                        else inputClass += "border-gray-300";
+
+                                        return (
+                                            <input 
+                                                key={pIdx}
+                                                type="text"
+                                                className={inputClass}
+                                                value={inputs[id] || ""}
+                                                onChange={(e) => handleChange(id, e.target.value)}
+                                                placeholder="..."
+                                                autoComplete="off"
+                                                spellCheck="false"
+                                            />
+                                        );
+                                    })}
+                                </div>
+                            );
+                        })}
+                    </div>
+                    
+                    <div className="flex justify-center pt-6">
+                        <Button onClick={checkAnswers} variant="primary" icon={Icons.Check}>Check Answers</Button>
+                    </div>
+                </div>
+            );
+        };
+
+        // 4.6 Confetti Component
+        const Confetti = () => {
+            const [particles, setParticles] = useState([]);
+            useEffect(() => {
+                playSound('fanfare');
+                const colors = ['#C5A880', '#0A192F', '#ffffff', '#e6d5b8', '#10b981', '#e11d48', '#0ea5e9'];
+                const newParticles = Array.from({ length: 120 }).map((_, i) => ({
+                    id: i,
+                    x: Math.random() * 100,
+                    y: -20 - Math.random() * 50,
+                    size: 6 + Math.random() * 12,
+                    color: colors[Math.floor(Math.random() * colors.length)],
+                    duration: 3 + Math.random() * 5,
+                    delay: Math.random() * 2
+                }));
+                setParticles(newParticles);
+            }, []);
+
+            return (
+                <div className="fixed inset-0 pointer-events-none z-50 overflow-hidden">
+                    {particles.map(p => (
+                        <div key={p.id} className="absolute rounded-sm opacity-90 shadow-sm"
+                            style={{
+                                left: `${p.x}vw`, top: `${p.y}vh`, width: `${p.size}px`, height: `${p.size}px`,
+                                backgroundColor: p.color,
+                                animation: `fall ${p.duration}s cubic-bezier(0.25, 0.46, 0.45, 0.94) ${p.delay}s forwards`,
+                            }}
+                        />
+                    ))}
+                    <style>{`
+                        @keyframes fall {
+                            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+                            100% { transform: translateY(120vh) rotate(1080deg); opacity: 0; }
+                        }
+                    `}</style>
+                </div>
+            );
+        };
+
+        // 4.7 Speech Simulator (Pressure Test)
         const SpeechSimulator = ({ prompts }) => {
             const [isActive, setIsActive] = useState(false);
             const [time, setTime] = useState(45);
@@ -857,6 +1072,36 @@
                     />
                 ),
                 note: "Idioms require energy. If they say 'You nailed it' with a flat, robotic voice, it loses its meaning. Push them to act excited."
+            },
+            {
+                id: 'slang-match',
+                title: "Social Interactions",
+                subtitle: "Matching Game",
+                content: () => (
+                    <div className="w-full max-w-5xl mx-auto animate-fade-in-up">
+                        <div className="glass-panel p-8 md:p-12 rounded-[2.5rem] shadow-xl border-t-8 border-gold-500 relative overflow-hidden">
+                            <p className="text-center text-xl text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed">
+                                Match the backstage situation on the left with the natural "slang" response on the right.
+                            </p>
+                            <MatchingGame 
+                                successMsg="Perfect Natural Responses!"
+                                leftItems={[
+                                    { id: '1', text: "Your friend just finished a great speech." },
+                                    { id: '2', text: "Looking at a beautiful evening gown." },
+                                    { id: '3', text: "Someone is nervous about the walk." },
+                                    { id: '4', text: "The microphone broke, but she didn't panic." }
+                                ]}
+                                rightItems={[
+                                    { id: '4', text: "\"Wow, she really kept her cool.\"" },
+                                    { id: '1', text: "\"Congratulations, you nailed it!\"" },
+                                    { id: '2', text: "\"That dress is completely on point.\"" },
+                                    { id: '3', text: "\"Don't worry, it's a breeze.\"" }
+                                ]}
+                            />
+                        </div>
+                    </div>
+                ),
+                note: "This activity tests pragmatics: knowing WHEN to use the slang. Discuss why each response fits the situation perfectly."
             },
             {
                 id: 'polite-refusal',
